@@ -23,11 +23,14 @@ This repository only hosts the files players need on their own PC to connect to 
 
 ## Requirements
 
+- A Windows PC. The launcher and the client DLL are Windows only.
 - The D2 game client, **build 244019** exactly. Other builds are not supported.
 - An Anvil server to connect to, run by you or by a friend.
 - The client DLL must come from the **same release as the server**. A mismatched pair may fail to connect.
 
 ## Install / update
+
+No release is published yet. The first release is coming soon.
 
 **With the Anvil launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
 that server runs, downloads it from this repository, verifies its signature and checksums, backs up your current DLL
@@ -49,7 +52,9 @@ Every release comes with patch notes. You can read them:
 - on the release's page in this repository;
 - in the launcher's **Patch Notes** panel, newest version first. A NEW tag marks versions you have not seen yet, and
   the last downloaded notes stay readable offline;
-- in game, in the **What's New** tab, where the server posts each new release's notes once.
+- in game, in the **What's New** tab, where the server posts each new release's notes once;
+- in game, as a popup at character select, if the server turns it on. It shows each release's notes once per
+  account. A new account first gets a short welcome message.
 
 ## Commands
 

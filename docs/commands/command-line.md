@@ -94,3 +94,19 @@ slot; a store that cannot be opened (`The character store could not be opened; n
   (`Use --test-login <host:port> <name> [--fingerprint <hex>] (the login port is the game port + 1).`); an invalid
   account name; a bad fingerprint (`--fingerprint needs the 64 hex digits the server prints.`); `--fingerprint`
   without `--test-login`; an address that cannot be resolved; no password entered.
+
+## Anvil launcher: a second game on one PC (not tested in game yet)
+
+### `"Anvil Launcher.exe" --second-instance`
+
+- **What:** opens a second launcher, titled `Anvil Launcher (second instance)`, to play a second account on the same
+  PC as a running game. It keeps its own settings (remembered account, trusted server) apart from the usual launcher.
+- **How it plays:** only against this PC's own server (`127.0.0.1`), always as a remote-play sign-in, so the server
+  gives the second account its own world. It never replaces the game DLL, never updates itself and never starts or
+  stops the server.
+- **Needs** in `anvil-server.cfg`: `remote_play = on` (it refuses Play without it, before any password is sent), and
+  for playing together `multiplayer = fireteam`, `relay_ports = 7510-7541`, `relay_bind = 127.0.0.1`.
+- **Needs** a second account (`anvil-server --add-account <name>`).
+- **Order:** start the first game, wait for its title screen, then start the second launcher. Both games run
+  windowed. Quit the second game first.
+- Without `--second-instance` the launcher works exactly as before.

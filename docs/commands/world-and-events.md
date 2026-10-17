@@ -124,7 +124,11 @@ Announcement text is never written to the log.
   not the one `client-release.txt` names (edited after publishing); the notes have no text.
 - **Popup (optional):** with `patch_notes_popup = on`, a player who has not read the newest patch notes sees them
   as a popup at character select, up to 3 pages (close one to see the next). It shows once per account and release,
-  and the entry counts as read afterwards.
+  and the entry counts as read afterwards. The popup uses the post's picture (see `art=` below); patch notes use
+  `fix`.
+- **Welcome:** with the popup on, an account that has never seen it first gets one page, `Welcome to D2 Anvil`, with
+  the `hammer` picture. It shows once per account and is not added to the inbox. Closing it shows the patch notes,
+  if there are unread ones.
 - `announce list`, `announce edit` and `announce remove` work on these posts like on any announcement.
 
 ### `announce [Title] [Body]` · `announce Title | Body` · `announce Body`
@@ -189,3 +193,18 @@ Announcement text is never written to the log.
   the kind; an edit without `kind=` keeps the current one.
 - **Examples:** `announce [Test] Hello kind=4` · `announce edit 3 kind=none`
 - **Refuses:** another value (`announce: kind=<0..32> or kind=none ...`).
+
+### `art=<name>` (picture option)
+
+- The last word of a post or an edit may be `art=<name>`. It picks the picture shown with the announcement, in the
+  What's New entry and in the popup. It can be combined with `kind=`, in either order.
+- **Names:** `plain` (no picture, the old plain look), `fix`, `ops`, `bnoc`, `raid`, `eagle`, `chevron`,
+  `shield`, `sunburst`, `trio`, `fist`, `laurel`, `charity`, `hammer`, `robot`, `hearts`, `rings`, `serpent`,
+  `workshop`. Names are not case-sensitive. The console's `help` lists them too.
+- **Defaults:** a new `announce` uses `ops`; automatic patch notes use `fix`. An edit without `art=` keeps the
+  current picture. `announce edit <id> art=<name>` alone changes only the picture (the post becomes unread, as
+  every edit does). The guided `announce` asks no picture question and uses `ops`.
+- **List items:** a body line starting with `- ` is shown with a diamond bullet in the game.
+- **Examples:** `announce [Server notice] Back online. art=fix` · `announce edit 3 art=hammer` ·
+  `announce edit 3 art=plain kind=4`
+- **Refuses:** an unknown name; `art=` twice; `art=` with no text to post.

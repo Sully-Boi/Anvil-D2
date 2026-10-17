@@ -157,7 +157,8 @@ Defaults:
 | `power.floor` | integer | 10..549 | 300 | catch-up: any drop below this comes at it; Collections pulls come at it |
 | `power.ordinary_ceiling` | integer | 11..550 | 400 | ordinary sources may climb +1 up to here |
 | `power.cap` | integer | 11..550 | 550 | hard cap of any new item (550 is this build's Power cap) |
-| `power.climb_chance` | chance | 0..100% | 10% | chance an ordinary drop between the floor and the ceiling is +1 |
+| `power.climb_chance` | chance | 0..100% | 10% | chance an ordinary drop between the floor and the ceiling climbs (with the data rules: the 0..+1 brackets; left at 10% they use the game data's 50%) |
+| `power.climb_amount` | range | each end 1..50 | 1-1 | how much a climb adds when it happens (uniform low-high, so `1-3` = +1, +2 or +3); still capped by `power.ordinary_ceiling` (or, with the data rules, the bracket's top, 400 for ordinary drops) and `power.cap` |
 | `power.maintenance_min` | integer | 0..50 | 1 | above the ceiling, ordinary drops come at least this much below current Power |
 | `power.maintenance_max` | integer | 0..50 | 5 | ... and at most this much |
 | `power.portal_bonus.b` | range | each end 0..50 | 0-0 | Portal end-chest Power above current, grade B |
@@ -168,6 +169,13 @@ Defaults:
 | `power.portal_bonus.s_plus` | range | each end 0..50 | 5-5 | ... grade S+ |
 
 The Portal bonus keys only matter with `ANVIL_PORTAL_244019=1` (the Portal is hosted only with it).
+
+With `ANVIL_POWER_RULES_DATA_244019=1` new gear takes its Power from the game's own reward rules (the same rules the
+game uses for its reward previews) and these keys become overrides on top of them:
+`power.floor` and `power.cap` are the floor (300) and cap (550) those rules read; `power.climb_chance` and
+`power.climb_amount` shape the "chance of +1" brackets of ordinary drops; changing `power.ordinary_ceiling` or
+`power.maintenance_min`/`max` switches ordinary drops back to the hand-made rule with your values; changing a
+`power.portal_bonus.<grade>` switches that grade's Portal reward back to the hand-made bonus.
 
 #### Chests
 
@@ -275,4 +283,4 @@ server (`anvil-server.cfg is invalid ...`).
 | `relay_bind` | `<IPv4>` | `0.0.0.0` | the relay's local address |
 | `relay_lan_address` | `<IPv4>` | unset | the server's LAN address given to relay clients on a private network |
 | `patch_notes` | `on`, `off` | `on` | `on`: each newly published release's patch notes (`client-release-notes.md` next to `anvil-server.exe`) are posted once to the in-game inbox as `Anvil Update vX.Y.Z` (see [Inbox announcements](world-and-events.md#automatic-patch-notes)). `off`: never |
-| `patch_notes_popup` | `on`, `off` | `off` | `on`: a player who has not seen the newest patch notes gets them as a popup at character select (up to 3 pages, once per account and release). Needs `patch_notes = on`. Off by default until it has been seen working in game |
+| `patch_notes_popup` | `on`, `off` | `off` | `on`: a player who has not seen the newest patch notes gets them as a popup at character select (up to 3 pages, once per account and release). A new account first gets a one-page welcome, once. Needs `patch_notes = on`. Off by default until it has been seen working in game |
