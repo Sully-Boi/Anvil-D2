@@ -19,6 +19,9 @@ work on the server console and in chat (admins). The gameplay rates for XP and r
 - **Refuses:** 0, more than 11, or extra words (`usage: rank [1..11] (no number shows the current Guardian Rank)`).
 - **Note:** ranks 3 and above set the rank value only; their record states are not known. Setting the current rank
   answers `Guardian Rank of local is already N.`
+- **New accounts:** with `ANVIL_GRANK_TRACKER_244019=1`, a new account starts at Guardian Rank 1. Rank 2 is reached
+  by claiming "The Vanguard" in the Guardian Ranks screen, and each later rank by claiming its requirements.
+  `rank 1` on an existing account lets the player go through the rank 2 claim again.
 
 ## `xp [show]`
 

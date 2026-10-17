@@ -106,6 +106,27 @@ shows the first 270 characters of the body. Without a title the title is `Server
 
 Announcement text is never written to the log.
 
+### Automatic patch notes
+
+- **What:** when a new release is published, its patch notes appear in the inbox by themselves, titled
+  `Anvil Update vX.Y.Z`. Nobody has to type `announce`.
+- **How:** `publish_release.ps1` writes the notes as `client-release-notes.md` next to `anvil-server.exe`, and
+  their hash into `client-release.txt`. The server posts them at its next start, or at the next sign-in if it is
+  already running. Each release is posted once, also across restarts. An older release is never posted.
+- **Text:** the Markdown becomes plain inbox text: headings become UPPERCASE lines, a bold-only line such as
+  `**Mission**` becomes `Mission:`, list items start with `- `, bold and other marks are removed, accents and curly
+  quotes become plain letters. If the notes are longer than 739 characters, they are cut after a whole line and end
+  with `Full notes: Anvil launcher`. Opening the entry shows the first 270 characters, so put the most important
+  section first.
+- **Full inbox:** the oldest earlier patch-notes post is removed to make room. Manual announcements, and patch-notes
+  posts an admin edited, are never removed. If only those fill the inbox, nothing is posted and the console says so.
+- **Not posted when:** `patch_notes = off` in `anvil-server.cfg`; there is no `client-release-notes.md`; the file is
+  not the one `client-release.txt` names (edited after publishing); the notes have no text.
+- **Popup (optional):** with `patch_notes_popup = on`, a player who has not read the newest patch notes sees them
+  as a popup at character select, up to 3 pages (close one to see the next). It shows once per account and release,
+  and the entry counts as read afterwards.
+- `announce list`, `announce edit` and `announce remove` work on these posts like on any announcement.
+
 ### `announce [Title] [Body]` · `announce Title | Body` · `announce Body`
 
 - **Where:** console and chat (`!announce`). **Who:** admin.

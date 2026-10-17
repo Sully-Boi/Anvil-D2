@@ -29,13 +29,27 @@ This repository only hosts the files players need on their own PC to connect to 
 
 ## Install / update
 
+**With the Anvil launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
+that server runs, downloads it from this repository, verifies its signature and checksums, backs up your current DLL
+and installs the matching one. The launcher updates itself the same way. If an update cannot be verified, nothing is
+replaced, and you can choose to play anyway or cancel.
+
+**By hand.**
+
 1. Ask the server owner which release they run (versions look like `v0.2.0`).
 2. Download that release's files.
 3. Check them against `SHA256SUMS.txt`.
 4. Copy `steam_api64.dll` into the game's `bin\x64` folder (back up the old one first).
 5. Start the game through the Anvil launcher and sign in to the server.
 
-Once the auto-updating launcher is released, steps 1-4 happen automatically: the launcher checks the server's release, verifies the signature and installs the matching DLL.
+## Patch notes
+
+Every release comes with patch notes. You can read them:
+
+- on the release's page in this repository;
+- in the launcher's **Patch Notes** panel, newest version first. A NEW tag marks versions you have not seen yet, and
+  the last downloaded notes stay readable offline;
+- in game, in the **What's New** tab, where the server posts each new release's notes once.
 
 ## Commands
 

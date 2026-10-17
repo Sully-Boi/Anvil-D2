@@ -274,3 +274,5 @@ server (`anvil-server.cfg is invalid ...`).
 | `relay_ports` | `<first>-<last>` (2..64 ports, 1024..65535) | unset (no relay) | with `multiplayer = fireteam`: the UDP relay ports (two per relay session). Forward them (UDP) with the game and login ports |
 | `relay_bind` | `<IPv4>` | `0.0.0.0` | the relay's local address |
 | `relay_lan_address` | `<IPv4>` | unset | the server's LAN address given to relay clients on a private network |
+| `patch_notes` | `on`, `off` | `on` | `on`: each newly published release's patch notes (`client-release-notes.md` next to `anvil-server.exe`) are posted once to the in-game inbox as `Anvil Update vX.Y.Z` (see [Inbox announcements](world-and-events.md#automatic-patch-notes)). `off`: never |
+| `patch_notes_popup` | `on`, `off` | `off` | `on`: a player who has not seen the newest patch notes gets them as a popup at character select (up to 3 pages, once per account and release). Needs `patch_notes = on`. Off by default until it has been seen working in game |
