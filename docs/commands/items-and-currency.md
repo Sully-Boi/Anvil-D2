@@ -55,7 +55,7 @@ character selected in the game.
 | --- | --- |
 | Materials | `strange_coin` (`coin`) 777, `enhancement_core` (`core`) 9999, `enhancement_prism` (`prism`) 200, `ascendant_shard` 50, `ascendant_alloy` (`alloy`) 50, `upgrade_module` (`module`) 99, `legendary_mark` (`mark`) 9999, `spoils_of_conquest` (`spoils`) 240, `herealways_piece` (`herealways`) 9999, `dark_fragment` 200, `raid_banner` (`banner`) 999 |
 | Ciphers | `exotic_cipher` 5, `vanguard_cipher` 50, `crucible_cipher` 50, `iron_cipher` 50, `forsaken_cipher` 3 |
-| Event materials | `combat_telemetry` (`telemetry`) 999, `combat_telemetry_b` 999, `combat_telemetry_c` 500, `phantasmal_fragment` 999, `phantasmal_core` 999, `lost_ghost_trace` (`ghost_trace`) 999, `confectionery_heart` (`heart`) 9999, `candy` 99999, `shipwright_plans` 99, `transport_schema` 99, `dawning_spirit` (`spirit`) 9999 |
+| Event materials | `combat_telemetry` (`telemetry`) 999, `combat_telemetry_b` 999, `combat_telemetry_c` 500, `phantasmal_fragment` 999, `phantasmal_core` 999, `lost_ghost_trace` (`ghost_trace`) 999, `confectionery_heart` (`heart`) 9999, `candy` 99999, `shipwright_plans` 99, `transport_schema` 99, `dawning_spirit` (`spirit`) 9999, `strange_matter` (`matter`) 999, `strange_signal` (`signal`) 999 |
 | Faction engrams | `vanguard_engram`, `crucible_engram`, `gambit_engram`, `trials_engram`, `iron_engram`, `gunsmith_engram`, `pale_heart_engram` (99 each) |
 
 ## `give <item hash> [tier=N] [power=N] [perk<N>=<plug hash>]... [force]`

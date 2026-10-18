@@ -118,6 +118,7 @@ On the command line, `anvil-server --rules-check` checks the file and `--rules-t
 | `materials.multiplier` | multiplier | 0..100 | 1 | materials from quest, bounty and mission rewards (Enhancement Cores, Strange Coins...) |
 | `xp.multiplier` | multiplier | 0..100 | 1 | every XP grant |
 | `reputation.multiplier` | multiplier | 0..100 | 1 | reputation from quest, bounty and mission rewards (Strange Favor, Clan, Throne World, Neomuna) |
+| `upgrade.cost_multiplier` | multiplier | 0..100 | 1 | Glimmer and materials a socket upgrade costs (masterwork tiers, armor energy, priced mods); 1 is the game data's cost, 0 is free. Only with `ANVIL_SOCKET_COSTS_244019=1` |
 
 #### Kill drops
 
@@ -242,6 +243,29 @@ Only with `ANVIL_VENDOR_RANKS_244019=1`.
 | `ranks.track.4` | integer | 1..16 | 13 | ... row 4 |
 | `ranks.track.5` | integer | 1..16 | 16 | ... row 5 |
 
+#### Distortions
+
+Only with `ANVIL_DISTORTIONS_244019=1`. The amounts are server defaults, not values taken from the game data.
+
+| Key | Type | Range | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `distortions.matter.kill.minor` | integer | 0..999 | 1 | Strange Matter per minor kill on the Distorted Destination |
+| `distortions.matter.kill.elite` | integer | 0..999 | 3 | ... per elite kill |
+| `distortions.matter.kill.miniboss` | integer | 0..999 | 5 | ... per miniboss kill |
+| `distortions.matter.kill.champion` | integer | 0..999 | 5 | ... per champion kill |
+| `distortions.matter.kill.boss` | integer | 0..999 | 10 | ... per boss kill |
+| `distortions.matter.kill.vehicle` | integer | 0..999 | 3 | ... per vehicle kill |
+| `distortions.matter.chest` | integer | 0..999 | 5 | Strange Matter per chest that pays on the Distorted Destination (also needs `ANVIL_CHEST_LOOT_244019=1`) |
+| `distortions.matter.cache` | integer | 0..999 | 10 | Strange Matter a Strange Cache pays after its boss died (on top of its chest roll) |
+| `distortions.matter_per_signal` | integer | 1..999 | 50 | Strange Matter that combines into one Strange Signal |
+| `distortions.max_signals` | integer | 1..999 | 1 | Strange Signals an account holds at once (Matter keeps adding up to its stack of 999 while full) |
+
+#### Vendor purchases
+
+| Key | Type | Range | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `vendors.sale_rolls` | flag | on/off | on | a vendor purchase grants the plugs the sale fixes (the perks its preview shows) and one roll per vendor refresh period. `off`: a new random roll per purchase |
+
 #### Vendors and resets (restart keys)
 
 | Key | Type | Range | Default | What it does |
@@ -267,7 +291,8 @@ xp.multiplier = 1.5
 ## `anvil-server.cfg`
 
 Same line rules: `key = value`, `#` comments. Unknown keys are ignored. A malformed value of a known key stops the
-server (`anvil-server.cfg is invalid ...`).
+server (`anvil-server.cfg is invalid ...`), including a bad `multiplayer`, `shared_space`, `relay_ports`, `relay_bind` or
+`relay_lan_address`. A value of `remote_play` is `on`/`off` (also `1`/`0`).
 
 | Key | Values | Default | What it does |
 | --- | --- | --- | --- |
@@ -277,10 +302,26 @@ server (`anvil-server.cfg is invalid ...`).
 | `log` | `simple`, `advanced`, `quiet` | `simple` | console message level (`anvil-server.log` always gets every event) |
 | `unbound_chat_account` | an account name | unset | chat commands of a game started without a launcher sign-in (`--allow-unbound-launch`) run as this account; it must still be an admin |
 | `remote_play` | `on`, `off` | `off` | `on`: games on other PCs play here, each account in its own world; the game port also listens on the `server` host |
-| `public_endpoint` | `<IPv4>:<port>` | unset | with `remote_play`: the game address other PCs reach (the router's public address and forwarded game port) |
-| `multiplayer` | `off`, `social`, `fireteam` | `off` | with `remote_play` only. `social`: every account here is a friend of the others (friends list, presence, profiles) and chat is relayed. `fireteam`: `social` plus invites, the fireteam, the UDP relay and joining a member's activity |
-| `relay_ports` | `<first>-<last>` (2..64 ports, 1024..65535) | unset (no relay) | with `multiplayer = fireteam`: the UDP relay ports (two per relay session). Forward them (UDP) with the game and login ports |
-| `relay_bind` | `<IPv4>` | `0.0.0.0` | the relay's local address |
-| `relay_lan_address` | `<IPv4>` | unset | the server's LAN address given to relay clients on a private network |
+| `public_endpoint` | `<IPv4>:<port>` | unset | with `remote_play`: the game address other PCs reach (the router's public address and forwarded game port). The login replies and activity host replies of remote accounts carry it. Unset: login replies name the server host |
+| `multiplayer` | `off`, `social`, `fireteam` | `off` | with `remote_play` only; without it the server logs that multiplayer is off. `social`: every account signed in here is a friend of the others (friends list, presence, membership lookup, public profiles) and chat is relayed between them. `fireteam`: `social` plus invites, the fireteam they form, the secure address book, the UDP relay (with `relay_ports`) and joining a fireteam member's activity. `off`: every reply as without multiplayer |
+| `shared_space` | `fireteam`, `social_all` | `fireteam` | only has an effect with `ANVIL_NET_SHARED_SPACE_244019` set to `1` or `2`, `multiplayer = fireteam` and `remote_play = on` (otherwise the server logs that the switch is off). Shared spaces are social destinations only. `fireteam`: only a fireteam shares a social space, hosted by its leader. `social_all`: every signed-in player at the same social destination shares one instance; the first to arrive hosts it, and a fireteam lands in its leader's instance (no host migration). The switch value `1` or `2` selects whose key a guest's player component names as its owner (`1` the host, `2` the guest itself) |
+| `relay_ports` | `<first>-<last>` (2..64 ports, 1024..65535, first below last) | unset (no relay) | with `multiplayer = fireteam` and `remote_play = on`: the UDP ports of the fireteam relay (two per relay session, so up to 32 sessions). Forward them (UDP) next to the TCP game and login ports; never forward the control port. Set without `fireteam`, the server logs that the relay is off; if a port cannot be bound, fireteams run without a relay |
+| `relay_bind` | `<IPv4>` | `0.0.0.0` | the relay's local address. Used only with a relay |
+| `relay_lan_address` | `<IPv4>` (not `0.0.0.0`) | unset | the server's LAN address given to relay clients on a private network (unset: the address their game connection reached; other clients get `public_endpoint`) |
 | `patch_notes` | `on`, `off` | `on` | `on`: each newly published release's patch notes (`client-release-notes.md` next to `anvil-server.exe`) are posted once to the in-game inbox as `Anvil Update vX.Y.Z` (see [Inbox announcements](world-and-events.md#automatic-patch-notes)). `off`: never |
 | `patch_notes_popup` | `on`, `off` | `off` | `on`: a player who has not seen the newest patch notes gets them as a popup at character select (up to 3 pages, once per account and release). A new account first gets a one-page welcome, once. Needs `patch_notes = on`. Off by default until it has been seen working in game |
+
+### Multiplayer settings in short
+
+Multiplayer needs `remote_play = on` and, for fireteams, `multiplayer = fireteam`. A setup for friends on other PCs:
+
+```
+remote_play = on
+public_endpoint = <public IPv4>:7500
+multiplayer = fireteam
+relay_ports = 7510-7541
+```
+
+Forward TCP game port, TCP login port (game port + 1) and the UDP relay ports. Shared social spaces and session
+advertisements are separate opt-in switches (`ANVIL_NET_SHARED_SPACE_244019`, `ANVIL_NET_SESSIONS_244019`); wider
+multiplayer is still in development.

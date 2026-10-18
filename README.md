@@ -10,6 +10,8 @@
 Play it **offline** on your own PC, or host a server and **play with friends** (multiplayer is in active development).
 This repository only hosts the files players need on their own PC to connect to an Anvil server.
 
+**Multiplayer status.** Two players can form a fireteam (by invite or from the friends list with Join), launch an activity together and see each other. Lobby and roster sync and wider multiplayer are still in development.
+
 > **Early and experimental.** Anvil is in a very early stage. Expect many bugs, and many things missing or broken.
 
 ## What a release contains

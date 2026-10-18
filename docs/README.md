@@ -47,3 +47,7 @@ use them and how to get help.
 | `ANVIL_CHEST_LOOT_244019=1` | the `chest.*` rules |
 | `ANVIL_OBJECTIVES_H_244019=1` | the `xp.pursuit.*` rules (when the XP service is off) |
 | `ANVIL_PORTAL_244019=1` | the `power.portal_bonus.*` rules |
+| `ANVIL_DISTORTIONS_244019=1` | the `distortions.*` rules (`distortions.matter.chest` also needs `ANVIL_CHEST_LOOT_244019=1`) |
+| `ANVIL_SOCKET_COSTS_244019=1` | the `upgrade.cost_multiplier` rule |
+| `ANVIL_NET_SHARED_SPACE_244019=1` or `2` | the `shared_space` key of `anvil-server.cfg` (with `multiplayer = fireteam`) |
+| `ANVIL_NET_SESSIONS_244019=1` | online session advertisements get a session id (with `multiplayer = fireteam`) |
