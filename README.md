@@ -32,7 +32,7 @@ This repository only hosts the files players need on their own PC to connect to 
 
 ## Install / update
 
-No release is published yet. The first release is coming soon.
+No release is published yet. There is no release date or ETA for the first release.
 
 **With the Anvil launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
 that server runs, downloads it from this repository, verifies its signature and checksums, backs up your current DLL
