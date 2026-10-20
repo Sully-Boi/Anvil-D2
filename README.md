@@ -31,18 +31,19 @@ project's automated checks but has not yet been confirmed in a play session.
 
 | Area | State | Notes |
 |---|---|---|
-| Offline play | Playable | Sign in, create characters and play the Tower and patrol spaces on your own PC. |
+| Offline play | Playable | Sign in, create characters and play the Tower and patrol spaces on your own PC, with enemies in patrol. |
 | The opening campaign | Playable | The first mission and the New Light quest line. Some later steps are still being checked. |
 | Vendors, quests and bounties | Playable | Purchases, free claims, rank rewards, quest steps and bounties. |
 | Fireteams | Playable | Invite friends or Join from the friends list, load into the Tower together and see each other's gear change live. |
-| Fireteam activities | In testing | The fireteam leader hosts a private activity for the group, with objective and reward credit for every member. |
-| Orbit ships | In testing | Ships of fireteam members update in orbit when they change ship, shader or ornament. |
-| Public events | In testing | Ether Resupply, Glimmer and Warsat events in patrol spaces. |
-| Lost Sectors | In testing | First Lost Sector with its barriers, boss and end chest. |
+| Fireteam activities | In testing | The fireteam leader hosts a private activity for the group, with objective and reward credit for every member. Guests see the host's activity objects. |
+| Fireteam management | In testing | Inspect a friend's or fireteam member's Guardian, and remove a member from the fireteam. |
+| Orbit ships | In testing | Ships update in orbit when a player changes ship, shader or ornament, for every fireteam member. |
+| Public events | In development | Ether Resupply, Glimmer and Warsat events run in patrol spaces; their on-screen objectives, flags and rewards are being finished. |
+| Lost Sectors | In testing | First Lost Sector: shoot the runes to open its walls, then the boss and the end chest. |
 | Loot | In testing | Drops follow each item's source in the game data; enemy drops can land in the world to be picked up. |
-| Armor and weapon stats | In testing | Masterwork tiers, mods and their stat effects on the character screen. |
-| Expansion campaigns | In development | Beyond Light is next, followed by the other expansions in release order. |
-| Dungeons and raids | In development | Encounters, mechanics, wipes and weekly checkpoints, starting with one dungeon. |
+| Armor and weapon stats | In testing | Masterwork tiers, mods and their stat effects, including element-based armor mods. |
+| Expansion campaigns | In development | Beyond Light's first mission and Europa are in testing; the other expansions follow in release order. |
+| Dungeons and raids | In development | Encounters, mechanics, wipes and weekly checkpoints. The first dungeon is in testing. |
 
 ## What a release contains
 
