@@ -50,6 +50,25 @@ role changed while the order waited, it is refused:
 
 ---
 
+## Public events
+
+Public events run in patrol spaces on their own timer, like in the live game. These console commands help server
+owners test them. They work only when public events are enabled for the server.
+
+### `pe` · `pe list`
+
+Console. Lists the current patrol's public events: name, area and whether each one is ready to start.
+
+### `pe start <name|number>`
+
+Console. Starts a ready public event at once, with no countdown. The fireteam must already be in its area.
+
+### `pe stop`
+
+Console. Ends the running public event without a reward.
+
+---
+
 ## Seasonal events
 
 Switching an event on forces it on regardless of the date. Off means the date decides. Changes are saved, sent to a

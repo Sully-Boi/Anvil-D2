@@ -150,6 +150,7 @@ Defaults:
 | `loot.min_rarity` | rarity | common..legendary | rare | lowest rarity of random gear at or above `loot.min_rarity_from_power` (`common` = no floor) |
 | `loot.min_rarity_from_power` | integer | 10..550 | 300 | current Power from which `loot.min_rarity` applies |
 | `loot.social_space_drops` | flag | on/off | off | world drops in social and practice spaces (Tower, Lighthouse, Shooting Range, Xur's hoard) |
+| `loot.source_pools` | flag | on/off | on | drops follow each item's source in the game data: destination gear drops on its own destination, and faction, destination and Exotic engrams decrypt into their own pools. `off`: one shared pool, as in earlier releases |
 
 #### Power
 
@@ -273,6 +274,10 @@ Only with `ANVIL_DISTORTIONS_244019=1`. The amounts are server defaults, not val
 | `vendors.special_deliveries_once_per_account` | flag | on/off | on | Special Deliveries rows are claimed once per account and hidden. `off`: claimable again (rows already hidden stay hidden until `owned clear`). [restart] |
 | `reset.hour_utc` | integer | 0..23 | 17 | daily and weekly reset hour (UTC). [restart] |
 | `reset.weekly_day` | weekday | monday..sunday | tuesday | weekly reset day (weekly free vendor claims, weekly bounties). [restart] |
+| `xur.reset_hours` | integer | 0..8760 | 0 | how often Xur's stock re-rolls. `0`: weekly, at the weekly reset (as retail). `24`: daily. `168`: weekly from `xur.reset_day` / `xur.reset_hour`. Any other number: every that many hours. [restart] |
+| `xur.reset_day` | weekday | monday..sunday | friday | with `xur.reset_hours` above 0: the weekday of the first Xur reset. [restart] |
+| `xur.reset_hour` | integer | 0..23 | 17 | with `xur.reset_hours` above 0: the UTC hour of the Xur reset. [restart] |
+| `xur.hoard` | flag | on/off | off | shows Xur's Treasure Hoard in the Director. Side effect: it also switches off the New Light hints and opens the seal pages for characters still in the opening quest. A hoard already shown stays shown after turning it off. [restart] |
 
 ### Example file
 
