@@ -37,9 +37,11 @@ project's automated checks but has not yet been confirmed in a play session.
 | Fireteams | Playable | Invite friends or Join from the friends list, load into the Tower together and see each other's gear change live. |
 | Fireteam activities | In testing | The fireteam leader hosts a private activity for the group, with objective and reward credit for every member. Guests see the host's activity objects. |
 | Fireteam management | In testing | Inspect a friend's or fireteam member's Guardian, and remove a member from the fireteam. |
-| Orbit ships | In testing | Ships update in orbit when a player changes ship, shader or ornament, for every fireteam member. |
-| Public events | In development | Ether Resupply, Glimmer and Warsat events run in patrol spaces; their on-screen objectives, flags and rewards are being finished. |
-| Lost Sectors | In testing | First Lost Sector: shoot the runes to open its walls, then the boss and the end chest. |
+| Orbit ships | In testing | Ships update in orbit when a player changes ship, shader or ornament, for every fireteam member. A new ship now swaps in instantly; the fly-off only plays when someone joins or leaves the fireteam. |
+| Story missions and strikes | In testing | The Cosmodrome story missions and strikes were rebuilt from the game data: dialogue at the right moments and lengths, correct enemy waves, doors and objectives. |
+| Patrol spaces | In testing | Cosmodrome and EDZ: the area's enemies are in place when you arrive, encounters start when you enter them, and treasure chests appear and pay out. |
+| Public events | In development | Ether Resupply, Glimmer and Warsat events run in patrol spaces, including the Warsat fall, the Glimmer drill and the Ether supply covers; their on-screen objectives, flags and rewards are being finished. |
+| Lost Sectors | Playable | First Lost Sector: shoot the runes to open its walls, then the boss and the end chest. Confirmed in play: the end chest pays out, and the sector is fresh when you come back. The rune symbols and enemy placement are still being checked. |
 | Loot | In testing | Drops follow each item's source in the game data; enemy drops can land in the world to be picked up. |
 | Armor and weapon stats | In testing | Masterwork tiers, mods and their stat effects, including element-based armor mods. |
 | Expansion campaigns | In development | Beyond Light's first mission and Europa are in testing; the other expansions follow in release order. |
@@ -104,3 +106,9 @@ The server is run and configured with chat, console and command-line commands. T
 Versions follow `vMAJOR.MINOR.PATCH`: the last number goes up for fixes, the middle one for new features. Each
 release is built from a fully validated server and client pair. Use the newest release unless your server owner says
 otherwise.
+
+## Credits and license
+
+Anvil started from [Dawn](https://github.com/isinternets/Dawn) by isinternets and the Dawn contributors, which builds
+on the Sunrise and Sundial projects as credited there. Anvil is licensed under the GNU General Public License,
+version 3 only (GPL-3.0-only), and comes with no warranty.
