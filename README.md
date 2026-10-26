@@ -33,11 +33,12 @@ A rough picture of where things stand. "In testing" means built but not yet conf
 | Offline play | Playable | Sign in, create characters, and play the Tower and patrol spaces on your own PC. |
 | Playing with friends | In testing | Fireteams work in the Tower; shared activities are being tested. |
 | Story and campaign | In testing | The opening campaign and the Cosmodrome story missions and strikes. |
-| Patrol spaces | In testing | Cosmodrome and EDZ, with enemies, chests and Lost Sectors. Public events are still in development. |
+| Patrol spaces | In testing | Cosmodrome and EDZ, with enemies, chests and Lost Sectors. Public events run with their timers and completion rewards; event chests and some event types are still being finished. |
 | Vendors, quests and loot | Playable | Vendors, quests, bounties and drops. |
 | Gear and stats | In testing | Armor, weapons, mods and masterworks. |
 | Dungeons and raids | In development | The first dungeon is in testing. |
 | Expansions | In development | Added in release order, starting with Beyond Light. |
+
 ## What a release contains
 
 | File | Purpose |
