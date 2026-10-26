@@ -261,6 +261,44 @@ Only with `ANVIL_DISTORTIONS_244019=1`. The amounts are server defaults, not val
 | `distortions.matter_per_signal` | integer | 1..999 | 50 | Strange Matter that combines into one Strange Signal |
 | `distortions.max_signals` | integer | 1..999 | 1 | Strange Signals an account holds at once (Matter keeps adding up to its stack of 999 while full) |
 
+#### Reward tiers
+
+Only with `ANVIL_REWARD_POLICIES_244019=1`; without it these keys are not read and gear keeps the tier of its source
+data. They set the gear tier (1..5) of rewards. The numbers are server defaults, not values taken from the game data.
+These keys change with `rules reload`.
+
+| Key | Type | Range | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `reward.portal.full_package` | flag | on/off | on | a Portal end chest grants the grade's whole package of items. `off`: one item |
+| `reward.portal.prime_chance` | chance | 0..100% | 0% | chance a Prime engram reward is one tier higher |
+| `reward.event.plus_one` | chance | 0..100% | 15% | public event gear (base Tier 3): chance of Tier 4 |
+| `reward.event.plus_two` | chance | 0..100% | 5% | public event gear (base Tier 3): chance of Tier 5. With `reward.event.plus_one` at most 100% |
+| `reward.event.heroic_plus_one` | chance | 0..100% | 25% | heroic public event gear (base Tier 4): chance of Tier 5 |
+| `reward.event.distortion_bonus` | integer | 0..4 | 1 | tiers a public event's gear gains on a Distorted Destination (`ANVIL_DISTORTIONS_244019=1`), at most Tier 5 |
+| `reward.event.items` | integer | 0..5 | 1 | gear items each present member gets at a public event's success or heroic end (`0`: none) |
+| `reward.world.tier2` | chance | 0..100% | 30% | open-world gear (kills, chests, Lost Sector chests, untiered engrams): chance of Tier 2; otherwise Tier 1 unless `reward.world.tier3` hits |
+| `reward.world.tier3` | chance | 0..100% | 0% | open-world gear: chance of Tier 3. With `reward.world.tier2` at most 100% |
+| `reward.dungeon.standard_tier` | integer | 1..5 | 3 | gear of a dungeon that is not the featured one, at Standard difficulty |
+| `reward.dungeon.master_tier` | integer | 1..5 | 5 | the same at Master difficulty |
+| `reward.dungeon.items` | integer | 0..5 | 1 | gear items each member gets at a dungeon completion (`0`: none) |
+| `reward.raid.standard_tier` | integer | 1..5 | 3 | armor of a raid that is not the featured one, at Standard difficulty |
+| `reward.raid.master_tier` | integer | 1..5 | 5 | the same at Master difficulty or with challenges |
+| `reward.featured.tier` | integer | 1..5 | 5 | gear of the featured raid or dungeon, at any difficulty |
+| `reward.featured.dungeons` | list | `none` or a comma list of dungeon names | `throne,pit,prophecy,grasp,duality,spire,ghosts,warlords,vesper,sundered,equilibrium` | the weekly featured-dungeon rotation, in order (up to 12 entries). `none`: no rotation. Names: `throne`, `pit`, `prophecy`, `grasp`, `duality`, `spire`, `ghosts`, `warlords`, `vesper`, `sundered`, `equilibrium` |
+| `reward.featured.raids` | list | `none` or a comma list of raid names | `lw,gos,dsc,vog,vow,kf,ron,se,ce,dp` | the weekly featured-raid rotation, in order (up to 12 entries). `none`: no rotation. Names: `lw`, `gos`, `dsc`, `vog`, `vow`, `kf`, `ron`, `se`, `ce`, `dp` |
+| `reward.featured.period_weeks` | integer | 1..52 | 1 | weeks each rotation entry stays featured; it changes at the weekly reset (`reset.weekly_day`, `reset.hour_utc`) |
+| `reward.featured.offset` | integer | 0..99 | 0 | the rotation entry featured in reset week 1 (the week starting 1970-01-06 17:00 UTC); shifts the whole rotation |
+| `reward.featured.dungeon` | pick | `auto`, `none` or a dungeon name | auto | this week's featured dungeon. `auto`: the rotation. `none`: no dungeon is featured |
+| `reward.featured.raid` | pick | `auto`, `none` or a raid name | auto | this week's featured raid, the same way |
+| `reward.vendor.tier` | integer | 1..5 | 1 | gear bought from a vendor that is neither a destination vendor nor a focusing page |
+| `reward.vendor.destination_tier` | integer | 1..5 | 3 | gear bought from a destination vendor |
+| `reward.focus.weapon_t4_from` | integer | 300..550 | 400 | a focused weapon is Tier 4 from this current Power (Tier 3 below) |
+| `reward.focus.armor_t4_from` | integer | 300..550 | 400 | focused armor is Tier 4 from this current Power (Tier 3 below). At most `reward.focus.armor_t5_from` |
+| `reward.focus.armor_t5_from` | integer | 300..550 | 520 | focused armor is Tier 5 from this current Power |
+| `reward.collections.tier` | integer | 1..5 | 1 | gear pulled from Collections (its Power stays 300) |
+| `reward.exotic_armor_tier` | integer | 0..5 | 5 | Exotic armor from any source except an operator `give` with `tier=`. `0`: the source's own tier |
+| `reward.armor.t5_tuning` | flag | on/off | on | a Tier 5 Armor 3.0 drop gets a tuned stat: its tuning socket holds a +5 / -5 tuning mod of a random stat |
+
 #### Vendor purchases
 
 | Key | Type | Range | Default | What it does |
