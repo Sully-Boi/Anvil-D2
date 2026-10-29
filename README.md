@@ -32,10 +32,14 @@ A rough picture of where things stand. "In testing" means built but not yet conf
 |---|---|---|
 | Offline play | Playable | Sign in, create characters, and play the Tower and patrol spaces on your own PC. |
 | Playing with friends | In testing | Fireteams work in the Tower; shared activities are being tested. |
-| Story and campaign | In testing | The opening campaign and the Cosmodrome story missions and strikes. |
+| Story and campaign | In testing | The opening campaign and the Cosmodrome story missions and strikes. Rebuilt and being tested: Advent, Cold Boot, Vendetta, Risk/Reward, Skywatch, Schism, Darkness's Doorstep and The Disgraced. Doors now stay open once used, and the Advent checkpoint shield drops when you reach the courtyard. |
 | Patrol spaces | In testing | Cosmodrome and EDZ, with enemies, chests and Lost Sectors. Public events run with their timers and completion rewards; event chests and some event types are still being finished. |
 | Vendors, quests and loot | Playable | Vendors, quests, bounties and drops. |
-| Gear and stats | In testing | Armor, weapons, mods and masterworks. |
+| Gear and stats | In testing | Armor, weapons, mods and masterworks. Infusion, free for now. |
+| Infusion cost | In development | Infusion charges the in-game price: 5,000 Glimmer and 1 Enhancement Core, or 1,000 Glimmer when infusing a copy of the same item. |
+| Triumphs | In testing | Active and Lifetime Triumph scores now count. |
+| Clans | In testing | Every player starts in the default clan, Anvil [ANVL], which the server owner can rename. Players create, join and leave clans with `!clan`; a clan's founder and admins manage it, and the server owner can manage any clan. See [Clans](docs/commands/players-and-accounts.md#clans). |
+| In-game overlay | In testing | Server commands and test tools in game, with an adjustable UI scale, an Explore a destination card that loads any reachable destination's map, and a projectile swap for the held weapon. The crosshair now shows after launching an activity from the overlay. |
 | Dungeons and raids | In development | The first dungeon is in testing. |
 | Expansions | In development | Added in release order, starting with Beyond Light. |
 
@@ -89,9 +93,10 @@ The server is run and configured with chat, console and command-line commands. T
 **[command reference](docs/README.md)** covers:
 
 - where to type commands, and the admin and player roles;
+- clans: creating, joining and managing them with `!clan`;
 - items, currency, missions, quests and progression;
 - world pickups, public events, seasonal events and inbox announcements;
-- every server setting (loot, Power, XP, reputation, resets, Xur) and every command-line flag.
+- every server setting (loot, chests, Power, XP, reputation, resets, Xur) and every command-line flag.
 
 ## Releases
 

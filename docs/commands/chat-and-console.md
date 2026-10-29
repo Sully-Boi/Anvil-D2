@@ -25,8 +25,8 @@ Every account has one of two roles: **player** (the default) or **admin**.
 
 | Role | What happens |
 | --- | --- |
-| Player | No commands. Every chat command answers `unknown command`, so admin commands are not revealed. `!anvil` answers `No chat commands are available to your account.` |
-| Admin | Runs the chat commands below. The role is checked again for every command, and a banned admin is treated as a player. |
+| Player | Only `!clan` (see [Clans](players-and-accounts.md#clans)). Every other chat command answers `unknown command`, so admin commands are not revealed. `!anvil` answers `Commands: !clan (your clan). !anvil clan shows its usage.`; `!anvil <other command>` answers `No chat commands are available to your account.` |
+| Admin | Runs the chat commands below, and is a server owner for clans (`clan as`, `clan move`). The role is checked again for every command, and a banned admin is treated as a player. |
 | Console operator | Runs everything, including the console-only commands. |
 
 Grant the admin role on the console with `accounts admin <name> on`, or from the command line with
@@ -42,7 +42,7 @@ setting, such a game has no admin rights.
 - Grant or remove the admin role (`Only the server console can grant or remove the admin role.`).
 - Ban, unban, mute, unmute or kick another admin (`<name> is an admin; only the server console can do that.`).
 - Change the rules. `!rules` only shows them.
-- Run the console-only commands: `help` (use `!anvil`), `status`, `players`, `unsupported`, `save` without
+- Run the console-only commands: `help` (use `!anvil`), `status`, `log`, `players`, `unsupported`, `save` without
   `backup`, `shutdown`, `accounts list|add|remove|passwd`, `rules diff|check|reload`, `scripts reload`, and
   `announce` with no text (the guided form).
 - With remote play, an account playing from another PC cannot use `name` or `spawn` from chat.
@@ -51,7 +51,8 @@ setting, such a game has no admin rights.
 
 | Where | Type | You get |
 | --- | --- | --- |
-| Console | `help` | Every console command with a one-line description |
+| Console | `help` | The command groups (`players`, `items`, `missions`, `progress`, `server`) with what each covers |
+| Console | `help <group>` | The commands of one group, for example `help items`, one window at a time |
 | Console | `help <command>` | The lines of one command, for example `help mission`. `help give` also lists every item that can be given |
 | Chat | `!anvil` | Your chat commands in one line |
 | Chat | `!anvil <command>` | The usage of one command, for example `!anvil spawn` |
@@ -60,8 +61,8 @@ setting, such a game has no admin rights.
 clear eververse pursuit objective save announce event name`.
 
 Some commands work in chat but are left out of that list and of the in-game suggestions (the suggestion list
-is full): `!xp`, `!reputation`, `!director show`, `!rules` and `!loot` (an alias of `!inventory`).
-`!anvil xp` and `!anvil rules` still show their usage. `!anvil reputation` and `!anvil director` answer
+is full): `!clan`, `!xp`, `!reputation`, `!director show`, `!rules` and `!loot` (an alias of `!inventory`).
+`!anvil clan`, `!anvil xp` and `!anvil rules` still show their usage. `!anvil reputation` and `!anvil director` answer
 `No such command.`, but the commands themselves run.
 
 **Typos.** An admin who types an unknown command gets suggestions, for example `Did you mean !ban or !unban?`,
@@ -93,6 +94,7 @@ Any other name is refused: `There is one character store (the local player) unti
 | --- | --- | --- | --- | --- |
 | `help [command]` | Yes | as `!anvil` / `!help` / `!?` | `--help` | this page |
 | `status`, `players`, `unsupported` | Yes | No | No | [Server operation](server-operation.md) |
+| `log normal\|verbose\|quiet` | Yes | No | `--normal`, `--verbose`, `--quiet` | [Server operation](server-operation.md) |
 | `save` | Yes | No | No | [Server operation](server-operation.md) |
 | `save backup [label]` | Yes | Yes | No | [Server operation](server-operation.md) |
 | `shutdown [seconds]`, `shutdown cancel` | Yes | No | No | [Server operation](server-operation.md) |
@@ -101,6 +103,7 @@ Any other name is refused: `There is one character store (the local player) unti
 | `admins` | Yes | Yes | No | [Players and accounts](players-and-accounts.md) |
 | `characters [local]` | Yes | Yes | No | [Players and accounts](players-and-accounts.md) |
 | `name`, `name set <name>` | Yes | Yes | No | [Players and accounts](players-and-accounts.md) |
+| `clan ...` | Yes | Yes (every signed-in account; `clan as` and `clan move` admins only) | No | [Players and accounts](players-and-accounts.md#clans) |
 | `ban`, `unban` | Yes | Yes | `--ban`, `--unban` | [Moderation](moderation.md) |
 | `mute`, `unmute` | Yes | Yes | No | [Moderation](moderation.md) |
 | `kick` | Yes (connections or account) | Yes (account session) | No | [Moderation](moderation.md) |

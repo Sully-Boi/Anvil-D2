@@ -3,7 +3,7 @@
 [Back to the index](../README.md) · [Chat and console](chat-and-console.md)
 
 ```
-anvil-server [--listen host:port] [--data <dir>] [--simple|--verbose|--quiet] [--no-status]
+anvil-server [--listen host:port] [--data <dir>] [--normal|--verbose|--quiet] [--no-logo] [--no-status]
              [--allow-unbound-launch] [--remote-play]
 ```
 
@@ -26,12 +26,15 @@ character fixes use `4` when the server is running and `5` when the data folder 
 | `--help`, `-h` | prints the flag list and exits | `anvil-server --help` |
 | `--listen <host:port>` | listens on this address instead of the `server` key of `anvil-server.cfg` | `anvil-server --listen 0.0.0.0:7500` |
 | `--data <dir>` | the data folder (relative to the current folder); also used by the account flags | `anvil-server --data D:\anvil-data` |
-| `--simple` | plain operator messages (the default) | `anvil-server --simple` |
-| `--verbose` (or `--advanced`) | every event, colour-coded, for debugging | `anvil-server --verbose` |
+| `--normal` (or `--simple`, the old name) | plain sentences: sign-ins, activities, encounters, checkpoints, Exotic drops, admin results and problems with what to do (the default) | `anvil-server --normal` |
+| `--verbose` (or `--advanced`) | every event (time, category, event; details dimmed), for debugging | `anvil-server --verbose` |
 | `--quiet` | failures only | `anvil-server --quiet` |
+| `--no-logo` | the startup banner without the Anvil crest | `anvil-server --no-logo` |
 | `--no-status` | no live status block; commands are still read line by line | `anvil-server --no-status` |
 | `--allow-unbound-launch` | also serves games started without an Anvil Launcher sign-in (development). Their chat commands run as `unbound_chat_account` | `anvil-server --allow-unbound-launch` |
 | `--remote-play` | games on other PCs play here, each account in its own world (same as `remote_play = on`) | `anvil-server --remote-play` |
+
+While the server runs, `log normal|verbose|quiet` switches the console view (see [Server operation](server-operation.md)).
 
 **Refuses:** `--allow-unbound-launch` and `--remote-play` with a job flag
 (`--remote-play only applies to running the server`); an invalid `--listen` value (`invalid --listen value`).

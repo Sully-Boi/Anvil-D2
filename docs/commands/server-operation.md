@@ -17,6 +17,17 @@ Day-to-day console commands. Only `save backup` also works in chat. Help (`help`
 - **Examples:** `status`
 - **Refuses:** any argument (`this command takes no arguments`).
 
+## `log normal|verbose|quiet`
+
+- **Where:** console only. **Who:** console operator.
+- **What:** switches what the console shows while the server runs: `normal` plain sentences (sign-ins, activities,
+  encounters, checkpoints, Exotic drops, admin results, and problems with what to do), `verbose` every event (time,
+  category, event; for debugging) or `quiet` failures only. `anvil-server.log` always gets every event. The console
+  starts in the view of the `log` key of `anvil-server.cfg`, or of `--normal`, `--verbose` or `--quiet`.
+  `simple` and `advanced` are accepted as the old names of `normal` and `verbose`.
+- **Examples:** `log verbose` · `log normal` · `log quiet`
+- **Refuses:** any other word or a missing one (`usage: log normal|verbose|quiet`).
+
 ## `players`
 
 - **Where:** console only. **Who:** console operator.

@@ -188,6 +188,11 @@ Only with `ANVIL_CHEST_LOOT_244019=1`.
 | `chest.exotic` | chance | 0..100% | 2% | Exotic engram from an open-world gear chest (a weapon chest gives this share to Legendary) |
 | `chest.legendary` | chance | 0..100% | 28% | Legendary from a chest; the rest is Rare |
 | `chest.glimmer` | integer | 0..100000 | 0 | Glimmer per chest |
+| `chest.lost_sector.list` | flag | on/off | on | a Lost Sector end chest pays one entry of its sector's Expert reward list (Enhancement Cores; solo: the Exotic Engram, a Legendary weapon). `off`: the open-world chest roll (`chest.exotic` / `chest.legendary`) |
+| `chest.lost_sector.common` | integer | 0..1000 | 600 | draw weight of a Lost Sector reward-list entry tagged Common (an entry's chance is its weight over the sum of the eligible entries' weights) |
+| `chest.lost_sector.uncommon` | integer | 0..1000 | 300 | the same, for an entry tagged Uncommon |
+| `chest.lost_sector.rare` | integer | 0..1000 | 100 | the same, for an entry tagged Rare |
+| `chest.lost_sector.cores` | integer | 0..99 | 1 | Enhancement Cores paid by a Lost Sector chest's core entry |
 
 #### Dismantling
 
@@ -342,7 +347,7 @@ server (`anvil-server.cfg is invalid ...`), including a bad `multiplayer`, `shar
 | `server` | `host:port` (IPv4 or `localhost`, port 1..65535) | `127.0.0.1:7500` | the game port. The login port is port + 1; the local control port is port + 2 (127.0.0.1 only; never forward it). `0.0.0.0:port` listens on every interface |
 | `data` | a folder | `server-data` | the data folder; a relative path is relative to `anvil-server.exe` |
 | `max_players` | 1..64 | 4 | players signed in at once |
-| `log` | `simple`, `advanced`, `quiet` | `simple` | console message level (`anvil-server.log` always gets every event) |
+| `log` | `normal`, `verbose`, `quiet` (`simple` and `advanced` are accepted as the old names) | `normal` | the console view the server starts in; `log normal\|verbose\|quiet` switches it while running (`anvil-server.log` always gets every event) |
 | `unbound_chat_account` | an account name | unset | chat commands of a game started without a launcher sign-in (`--allow-unbound-launch`) run as this account; it must still be an admin |
 | `remote_play` | `on`, `off` | `off` | `on`: games on other PCs play here, each account in its own world; the game port also listens on the `server` host |
 | `public_endpoint` | `<IPv4>:<port>` | unset | with `remote_play`: the game address other PCs reach (the router's public address and forwarded game port). The login replies and activity host replies of remote accounts carry it. Unset: login replies name the server host |

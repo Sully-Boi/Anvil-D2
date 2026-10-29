@@ -11,13 +11,13 @@ use them and how to get help.
 | Page | What it covers |
 | --- | --- |
 | [Chat and console](commands/chat-and-console.md) | How to type commands, roles (admin / player), help, the full "where does it work" table |
-| [Players and accounts](commands/players-and-accounts.md) | Accounts, the admin role, characters, the display name |
+| [Players and accounts](commands/players-and-accounts.md) | Accounts, the admin role, characters, the display name, clans |
 | [Moderation](commands/moderation.md) | Ban, unban, mute, unmute, kick |
 | [Items and currency](commands/items-and-currency.md) | Give, currency and materials, inventory, clear weapons, Eververse reset, owned clear |
 | [Missions and quests](commands/missions-and-quests.md) | Mission reset and checkpoints, pursuits (quests and bounties), objective values, the Director view, mission scripts |
 | [Progression: XP and ranks](commands/progression-xp-ranks.md) | Guardian Rank, XP and the Rewards Pass, vendor reputation |
 | [World and events](commands/world-and-events.md) | World pickups (spawn), public events, seasonal events, inbox announcements |
-| [Server operation](commands/server-operation.md) | Status, players, save, backups, shutdown |
+| [Server operation](commands/server-operation.md) | Status, the console view, players, save, backups, shutdown |
 | [Server settings](commands/server-settings.md) | The `rules` commands, every `anvil-rules.cfg` key, the `anvil-server.cfg` keys |
 | [Command line](commands/command-line.md) | Every `anvil-server` flag |
 
