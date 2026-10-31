@@ -29,9 +29,9 @@ character fixes use `4` when the server is running and `5` when the data folder 
 | `--normal` (or `--simple`, the old name) | plain sentences: sign-ins, activities, encounters, checkpoints, Exotic drops, admin results and problems with what to do (the default) | `anvil-server --normal` |
 | `--verbose` (or `--advanced`) | every event (time, category, event; details dimmed), for debugging | `anvil-server --verbose` |
 | `--quiet` | failures only | `anvil-server --quiet` |
-| `--no-logo` | the startup banner without the Anvil crest | `anvil-server --no-logo` |
+| `--no-logo` | the startup banner without the ANViL crest | `anvil-server --no-logo` |
 | `--no-status` | no live status block; commands are still read line by line | `anvil-server --no-status` |
-| `--allow-unbound-launch` | also serves games started without an Anvil Launcher sign-in (development). Their chat commands run as `unbound_chat_account` | `anvil-server --allow-unbound-launch` |
+| `--allow-unbound-launch` | also serves games started without an ANViL Launcher sign-in (development). Their chat commands run as `unbound_chat_account` | `anvil-server --allow-unbound-launch` |
 | `--remote-play` | games on other PCs play here, each account in its own world (same as `remote_play = on`) | `anvil-server --remote-play` |
 
 While the server runs, `log normal|verbose|quiet` switches the console view (see [Server operation](server-operation.md)).
@@ -98,11 +98,11 @@ slot; a store that cannot be opened (`The character store could not be opened; n
   account name; a bad fingerprint (`--fingerprint needs the 64 hex digits the server prints.`); `--fingerprint`
   without `--test-login`; an address that cannot be resolved; no password entered.
 
-## Anvil launcher: a second game on one PC (not tested in game yet)
+## ANViL launcher: a second game on one PC (not tested in game yet)
 
 ### `"Anvil Launcher.exe" --second-instance`
 
-- **What:** opens a second launcher, titled `Anvil Launcher (second instance)`, to play a second account on the same
+- **What:** opens a second launcher, titled `ANViL Launcher (second instance)`, to play a second account on the same
   PC as a running game. It keeps its own settings (remembered account, trusted server) apart from the usual launcher.
 - **How it plays:** only against this PC's own server (`127.0.0.1`), always as a remote-play sign-in, so the server
   gives the second account its own world. It never replaces the game DLL, never updates itself and never starts or

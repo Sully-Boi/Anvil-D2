@@ -103,7 +103,7 @@ The same account changes are also on the command line: see [Command line](comman
 
 ## Clans
 
-Every account is in exactly one clan. A new account is in the **default clan, Anvil [ANVL]**, until it creates or
+Every account is in exactly one clan. A new account is in the **default clan, ANViL [ANVL]**, until it creates or
 joins another. The default clan is always open, needs no invite, and cannot be left, closed or disbanded; the server
 owner can rename it, change its tag and set its motto.
 
@@ -173,7 +173,7 @@ owner can rename it, change its tag and set its motto.
 - **Who:** the server owner.
 - **What:** runs `invite`, `kick`, `promote`, `demote`, `rename`, `tag`, `motto`, `open`, `close` or `disband` on that
   clan instead of your own, with the founder's rights.
-- **Examples:** `clan as Anvil rename Vanguard` · `!clan as "Iron Lords" kick bob` · `clan as Wardens disband`
+- **Examples:** `clan as ANViL rename Vanguard` · `!clan as "Iron Lords" kick bob` · `clan as Wardens disband`
 - **Refuses:** an account without the admin role
   (`Only the server owner can act on another clan (clan as).`); an unknown clan; a missing action
   (`usage: clan as <clan> <action ...>`).
@@ -181,8 +181,8 @@ owner can rename it, change its tag and set its motto.
 ### `clan move <player> <clan>`
 
 - **Who:** the server owner.
-- **What:** puts a player in a clan, regardless of invites. `clan move <player> Anvil` puts them back in the default
+- **What:** puts a player in a clan, regardless of invites. `clan move <player> ANViL` puts them back in the default
   clan.
-- **Examples:** `clan move alice Wardens` · `!clan move bob Anvil`
+- **Examples:** `clan move alice Wardens` · `!clan move bob ANViL`
 - **Refuses:** anyone else (`Only the server owner can move players between clans.`); a missing player or clan
   (`usage: clan move <player> <clan>`).

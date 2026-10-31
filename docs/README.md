@@ -1,6 +1,6 @@
-# Anvil server: command reference
+# ANViL server: command reference
 
-Anvil is a server emulator for the D2 build 244019 game client, played offline or with friends. This reference lists every command the server accepts:
+ANViL is a server emulator for the D2 build 244019 game client, played offline or with friends. This reference lists every command the server accepts:
 in-game chat commands, server console commands, command-line flags and the settings files.
 
 Start with **[Chat and console](commands/chat-and-console.md)**. It explains where to type commands, who may

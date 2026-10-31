@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/logo.png" width="200" alt="Anvil">
+  <img src="assets/logo.png" width="200" alt="ANViL">
 </p>
 
-<h1 align="center">Anvil-D2</h1>
+<h1 align="center">ANViL-D2</h1>
 
 <p align="center">Server emulator for the D2 build 244019 game client</p>
 
@@ -17,11 +17,11 @@
 
 ---
 
-**Anvil** is a server emulator for the **D2 build 244019** game client.
+**ANViL** is a server emulator for the **D2 build 244019** game client.
 Play it **offline** on your own PC, or host a server and **play with friends**.
-This repository hosts the files players need on their own PC to connect to an Anvil server.
+This repository hosts the files players need on their own PC to connect to an ANViL server.
 
-> **Early and experimental.** Anvil is at a very early stage. Expect bugs, and expect many things to be missing or
+> **Early and experimental.** ANViL is at a very early stage. Expect bugs, and expect many things to be missing or
 > broken.
 
 ## Status
@@ -38,7 +38,7 @@ A rough picture of where things stand. "In testing" means built but not yet conf
 | Gear and stats | In testing | Armor, weapons, mods and masterworks. Infusion, free for now. |
 | Infusion cost | In development | Infusion charges the in-game price: 5,000 Glimmer and 1 Enhancement Core, or 1,000 Glimmer when infusing a copy of the same item. |
 | Triumphs | In testing | Active and Lifetime Triumph scores now count. |
-| Clans | In testing | Every player starts in the default clan, Anvil [ANVL], which the server owner can rename. Players create, join and leave clans with `!clan`; a clan's founder and admins manage it, and the server owner can manage any clan. See [Clans](docs/commands/players-and-accounts.md#clans). |
+| Clans | In testing | Every player starts in the default clan, ANViL [ANVL], which the server owner can rename. Players create, join and leave clans with `!clan`; a clan's founder and admins manage it, and the server owner can manage any clan. See [Clans](docs/commands/players-and-accounts.md#clans). |
 | In-game overlay | In testing | Server commands and test tools in game, with an adjustable UI scale, an Explore a destination card that loads any reachable destination's map, and a projectile swap for the held weapon. The crosshair now shows after launching an activity from the overlay. |
 | Dungeons and raids | In development | The first dungeon is in testing. |
 | Expansions | In development | Added in release order, starting with Beyond Light. |
@@ -47,8 +47,8 @@ A rough picture of where things stand. "In testing" means built but not yet conf
 
 | File | Purpose |
 |---|---|
-| `steam_api64.dll` | The Anvil client DLL. It connects the game to an Anvil server instead of the official services. |
-| `Launcher.exe` | The Anvil launcher (only in releases where it changed): sign-in, server address, updates. |
+| `steam_api64.dll` | The ANViL client DLL. It connects the game to an ANViL server instead of the official services. |
+| `Launcher.exe` | The ANViL launcher (only in releases where it changed): sign-in, server address, updates. |
 | `SHA256SUMS.txt` | SHA-256 checksums of every file in the release. |
 | `release.json` / `release.json.sig` | The release manifest (version, file checksums) and its signature. |
 
@@ -56,14 +56,14 @@ A rough picture of where things stand. "In testing" means built but not yet conf
 
 - A Windows PC. The launcher and the client DLL are Windows only.
 - The D2 game client, **build 244019** exactly. Other builds are not supported.
-- An Anvil server to connect to, run by you or by a friend.
+- An ANViL server to connect to, run by you or by a friend.
 - The client DLL must come from the **same release as the server**. A mismatched pair may fail to connect.
 
 ## Install / update
 
 No release is published yet, and there is no date for the first one.
 
-**With the Anvil launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
+**With the ANViL launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
 that server runs, downloads it from this repository, verifies its signature and checksums, backs up your current DLL
 and installs the matching one. The launcher updates itself the same way. If an update cannot be verified, nothing is
 replaced, and you can choose to play anyway or cancel.
@@ -74,7 +74,7 @@ replaced, and you can choose to play anyway or cancel.
 2. Download that release's files.
 3. Check them against `SHA256SUMS.txt`.
 4. Copy `steam_api64.dll` into the game's `bin\x64` folder (back up the old one first).
-5. Start the game through the Anvil launcher and sign in to the server.
+5. Start the game through the ANViL launcher and sign in to the server.
 
 ## Patch notes
 
@@ -106,6 +106,6 @@ otherwise.
 
 ## Credits and license
 
-Anvil started from [Dawn](https://github.com/isinternets/Dawn) by isinternets and the Dawn contributors, which builds
-on the Sunrise and Sundial projects as credited there. Anvil is licensed under the GNU General Public License,
+ANViL started from [Dawn](https://github.com/isinternets/Dawn) by isinternets and the Dawn contributors, which builds
+on the Sunrise and Sundial projects as credited there. ANViL is licensed under the GNU General Public License,
 version 3 only (GPL-3.0-only), and comes with no warranty.

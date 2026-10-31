@@ -9,9 +9,9 @@
    - Tab completes a command, a subcommand or an account name.
    - The operator at the console can run every command.
 2. **In-game chat.** Start the line with `!`, for example `!give glimmer 500`.
-   - `/give glimmer 500` also works when Anvil's game DLL is loaded. The DLL sends the `/` lines the game does
+   - `/give glimmer 500` also works when ANViL's game DLL is loaded. The DLL sends the `/` lines the game does
      not know as `!` lines and adds the admin commands to the game's chat suggestions. `!` always works.
-   - The game has its own `/help`. Anvil's help is `!anvil` (aliases: `!help`, `!?`).
+   - The game has its own `/help`. ANViL's help is `!anvil` (aliases: `!help`, `!?`).
    - Replies are shown only to you.
    - A line is a command only when a letter follows the `!` or `/`. `!!!` or `! hi` is ordinary chat.
 3. **The command line** (`anvil-server --...`), for account changes and a few offline fixes.
@@ -33,7 +33,7 @@ Grant the admin role on the console with `accounts admin <name> on`, or from the
 `anvil-server --set-admin <name> on`. Chat can never grant or remove the role.
 
 **Which account chat runs as.** Chat commands run as the account the game signed in with through the
-Anvil Launcher. A game started without a launcher sign-in (only with `--allow-unbound-launch`) runs as the
+ANViL Launcher. A game started without a launcher sign-in (only with `--allow-unbound-launch`) runs as the
 `unbound_chat_account` set in `anvil-server.cfg`. That account must still hold the admin role. Without that
 setting, such a game has no admin rights.
 
