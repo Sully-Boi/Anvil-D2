@@ -28,16 +28,19 @@ Play it **offline** on your own PC, or host a server and **play with friends**.
 This repository hosts the files players need on their own PC to connect to an ANViL server.
 
 > [!WARNING]
-> **Early and experimental.** ANViL is at a very early stage. Expect bugs, and expect many things to be missing or
-> broken.
+> **Early and experimental.** ANViL is at a very early stage and does not run the full game yet. Expect bugs, and
+> expect many things to be missing or broken.
 
 ## Status
+
+Only the areas listed here work, and only as far as their state says.
 
 <p>
   <img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"> works in play &nbsp;
   <img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"> works, with known gaps &nbsp;
   <img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"> built, not yet confirmed in play &nbsp;
-  <img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"> being built
+  <img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"> being built &nbsp;
+  <img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"> not in ANViL yet
 </p>
 
 <table>
@@ -46,14 +49,18 @@ This repository hosts the files players need on their own PC to connect to an AN
 
 <table>
 <tr><th align="left">Game</th><th align="left">State</th></tr>
-<tr><td>Offline play</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
-<tr><td>Playing with friends</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Story and campaign</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Patrol spaces</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Vendors, quests and loot</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
-<tr><td>Gear and stats</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Dungeons and raids</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
-<tr><td>Expansions</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+<tr><td>Sign-in and characters</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
+<tr><td>The Tower</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
+<tr><td>Fireteams with friends</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Story missions</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Strikes</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Patrols: Cosmodrome and EDZ</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Public events</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Expansion campaigns</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+<tr><td>Dungeons</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+<tr><td>Raids</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
+<tr><td>Crucible (PvP)</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
+<tr><td>Gambit</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
 </table>
 
 </td>
@@ -61,6 +68,8 @@ This repository hosts the files players need on their own PC to connect to an AN
 
 <table>
 <tr><th align="left">Systems and tools</th><th align="left">State</th></tr>
+<tr><td>Vendors, bounties and loot</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
+<tr><td>Gear and stats</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
 <tr><td>Infusion cost</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
 <tr><td>Triumphs</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
 <tr><td>Clans</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
