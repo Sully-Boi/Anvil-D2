@@ -36,11 +36,11 @@ This repository hosts the files players need on their own PC to connect to an AN
 Only the areas listed here work, and only as far as their state says.
 
 <p>
-  <img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"> works in play &nbsp;
-  <img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"> works, with known gaps &nbsp;
-  <img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"> built, not yet confirmed in play &nbsp;
-  <img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"> being built &nbsp;
-  <img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"> not in ANViL yet
+  <img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"> confirmed working in play &nbsp;
+  <img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"> you can play it; known bugs or gaps &nbsp;
+  <img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"> added, not yet confirmed; may not work &nbsp;
+  <img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"> not usable yet &nbsp;
+  <img src="https://img.shields.io/badge/Not%20available-b62324?style=flat-square" alt="Not available"> not in ANViL yet
 </p>
 
 <table>
@@ -49,18 +49,18 @@ Only the areas listed here work, and only as far as their state says.
 
 <table>
 <tr><th align="left">Game</th><th align="left">State</th></tr>
-<tr><td>Sign-in and characters</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
-<tr><td>The Tower</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
-<tr><td>Fireteams with friends</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Story missions</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Strikes</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Patrols: Cosmodrome and EDZ</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Public events</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Expansion campaigns</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
-<tr><td>Dungeons</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
-<tr><td>Raids</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
-<tr><td>Crucible (PvP)</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
-<tr><td>Gambit</td><td><img src="https://img.shields.io/badge/Not%20available%20yet-b62324?style=flat-square" alt="Not available yet"></td></tr>
+<tr><td>Sign-in and characters</td><td><img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"></td></tr>
+<tr><td>The Tower</td><td><img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"></td></tr>
+<tr><td>Fireteams with friends</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Story missions</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Strikes</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
+<tr><td>Patrols: Cosmodrome and EDZ</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Public events</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Expansion campaigns</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
+<tr><td>Dungeons</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
+<tr><td>Raids</td><td><img src="https://img.shields.io/badge/Not%20available-b62324?style=flat-square" alt="Not available"></td></tr>
+<tr><td>Crucible (PvP)</td><td><img src="https://img.shields.io/badge/Not%20available-b62324?style=flat-square" alt="Not available"></td></tr>
+<tr><td>Gambit</td><td><img src="https://img.shields.io/badge/Not%20available-b62324?style=flat-square" alt="Not available"></td></tr>
 </table>
 
 </td>
@@ -68,16 +68,16 @@ Only the areas listed here work, and only as far as their state says.
 
 <table>
 <tr><th align="left">Systems and tools</th><th align="left">State</th></tr>
-<tr><td>Vendors, bounties and loot</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
-<tr><td>Gear and stats</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Infusion cost</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Triumphs</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Clans</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>Character appearance</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Buffs and consumables</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>Staff roles and moderation</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
-<tr><td>In-game overlay</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
-<tr><td>In-game console</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+<tr><td>Vendors, bounties and loot</td><td><img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"></td></tr>
+<tr><td>Gear and stats</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Infusion cost</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
+<tr><td>Triumphs</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Clans</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Character appearance</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
+<tr><td>Buffs and consumables</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
+<tr><td>Staff roles and moderation</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>In-game overlay</td><td><img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"></td></tr>
+<tr><td>In-game console</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
 </table>
 
 </td>
