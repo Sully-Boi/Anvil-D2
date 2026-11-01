@@ -11,7 +11,7 @@ use them and how to get help.
 | Page | What it covers |
 | --- | --- |
 | [Chat and console](commands/chat-and-console.md) | How to type commands, roles (admin / player), help, the full "where does it work" table |
-| [Players and accounts](commands/players-and-accounts.md) | Accounts, the admin role, characters, the display name, clans |
+| [Players and accounts](commands/players-and-accounts.md) | Accounts, the admin role, characters, the display name, appearance, clans |
 | [Moderation](commands/moderation.md) | Ban, unban, mute, unmute, kick |
 | [Items and currency](commands/items-and-currency.md) | Give, currency and materials, inventory, clear weapons, Eververse reset, owned clear |
 | [Missions and quests](commands/missions-and-quests.md) | Mission reset and checkpoints, pursuits (quests and bounties), objective values, the Director view, mission scripts |

@@ -99,7 +99,23 @@ The same account changes are also on the command line: see [Command line](comman
 - **Examples:** `name set Ashen Wolf` · `!name set Kell Breaker`
 - **Refuses:** a name that breaks the rules
   (`name: 1-26 printable ASCII characters, no '#', no leading, trailing or double spaces`); a missing name
-  (`usage: name | name set <name>`). Setting the current name answers `No change: that is already the display name.`
+  (`usage: name | name set <name>`); a name another player already has, in any case
+  (`That name is taken (another player has it, in some case); nothing was changed.`). Setting the current name
+  answers `No change: that is already the display name.`
+
+## `appearance [slot] gender male|female` · `appearance [slot] race human|awoken|exo`
+
+- **Where:** console and chat (`!appearance`).
+- **Who:** every signed-in player, for their own characters.
+- **What:** changes a character's body type or race. The character gets a default face of the new race and body
+  type; armor and shaders are kept. The change shows at character select; a character already in orbit or in an
+  activity changes after returning to character select or relaunching the game.
+- **Arguments:** `[slot]`: 1-3, the character slot (default: the selected character). `gender`: `male` or
+  `female`. `race`: `human`, `awoken` or `exo`.
+- **Examples:** `!appearance gender female` · `!appearance 2 race exo`
+- **Refuses:** an empty slot (`No character in slot N (type characters).`); no selected character and no slot; a
+  value outside the lists above. Asking for the current look answers `... is already ...; nothing was changed.`
+  `!anvil appearance` shows the usage.
 
 ## Clans
 
