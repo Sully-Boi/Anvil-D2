@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="200" alt="ANViL">
+  <img src="assets/logo.png" width="180" alt="ANViL">
 </p>
 
 <h1 align="center">ANViL-D2</h1>
@@ -7,46 +7,73 @@
 <p align="center">Server emulator for the D2 build 244019 game client</p>
 
 <p align="center">
-  <a href="#status">Status</a> &middot;
-  <a href="#requirements">Requirements</a> &middot;
-  <a href="#install--update">Install</a> &middot;
-  <a href="#patch-notes">Patch notes</a> &middot;
-  <a href="docs/README.md">Commands</a> &middot;
-  <a href="#releases">Releases</a>
+  <img src="https://img.shields.io/badge/build-244019-c9a227?style=flat-square&labelColor=24292f" alt="Build 244019">
+  <img src="https://img.shields.io/badge/platform-Windows-c9a227?style=flat-square&labelColor=24292f" alt="Windows">
+  <img src="https://img.shields.io/badge/license-GPL--3.0--only-c9a227?style=flat-square&labelColor=24292f" alt="GPL-3.0-only">
 </p>
 
----
+<p align="center">
+  <a href="#status"><b>Status</b></a> &nbsp;&middot;&nbsp;
+  <a href="#requirements"><b>Requirements</b></a> &nbsp;&middot;&nbsp;
+  <a href="#install--update"><b>Install</b></a> &nbsp;&middot;&nbsp;
+  <a href="#patch-notes"><b>Patch notes</b></a> &nbsp;&middot;&nbsp;
+  <a href="docs/README.md"><b>Commands</b></a> &nbsp;&middot;&nbsp;
+  <a href="#releases"><b>Releases</b></a>
+</p>
+
+<br>
 
 **ANViL** is a server emulator for the **D2 build 244019** game client.
 Play it **offline** on your own PC, or host a server and **play with friends**.
 This repository hosts the files players need on their own PC to connect to an ANViL server.
 
+> [!WARNING]
 > **Early and experimental.** ANViL is at a very early stage. Expect bugs, and expect many things to be missing or
 > broken.
 
 ## Status
 
-**Playable**: works in play. **Partially functional**: works, with known gaps. **In testing**: built, not yet
-confirmed in play. **In progress**: being built.
+<p>
+  <img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"> works in play &nbsp;
+  <img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"> works, with known gaps &nbsp;
+  <img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"> built, not yet confirmed in play &nbsp;
+  <img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"> being built
+</p>
 
-| Area | State |
-|---|---|
-| Offline play | Playable |
-| Playing with friends | Partially functional |
-| Story and campaign | Partially functional |
-| Patrol spaces | Partially functional |
-| Vendors, quests and loot | Playable |
-| Gear and stats | In testing |
-| Infusion cost | In testing |
-| Triumphs | In testing |
-| Clans | Partially functional |
-| Character appearance | In testing |
-| Buffs and consumables | In testing |
-| Staff roles and moderation | Partially functional |
-| In-game overlay | In testing |
-| In-game console | In progress |
-| Dungeons and raids | In progress |
-| Expansions | In progress |
+<table>
+<tr>
+<td valign="top">
+
+<table>
+<tr><th align="left">Game</th><th align="left">State</th></tr>
+<tr><td>Offline play</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
+<tr><td>Playing with friends</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Story and campaign</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Patrol spaces</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Vendors, quests and loot</td><td><img src="https://img.shields.io/badge/Playable-2ea043?style=flat-square" alt="Playable"></td></tr>
+<tr><td>Gear and stats</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Dungeons and raids</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+<tr><td>Expansions</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+</table>
+
+</td>
+<td valign="top">
+
+<table>
+<tr><th align="left">Systems and tools</th><th align="left">State</th></tr>
+<tr><td>Infusion cost</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Triumphs</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Clans</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>Character appearance</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Buffs and consumables</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>Staff roles and moderation</td><td><img src="https://img.shields.io/badge/Partially%20functional-d29922?style=flat-square" alt="Partially functional"></td></tr>
+<tr><td>In-game overlay</td><td><img src="https://img.shields.io/badge/In%20testing-388bfd?style=flat-square" alt="In testing"></td></tr>
+<tr><td>In-game console</td><td><img src="https://img.shields.io/badge/In%20progress-6e7681?style=flat-square" alt="In progress"></td></tr>
+</table>
+
+</td>
+</tr>
+</table>
 
 ## What a release contains
 
@@ -66,20 +93,25 @@ confirmed in play. **In progress**: being built.
 
 ## Install / update
 
-No release is published yet, and there is no date for the first one.
+> [!NOTE]
+> No release is published yet, and there is no date for the first one.
 
 **With the ANViL launcher (recommended).** When you sign in to a friend's server, the launcher checks which release
 that server runs, downloads it from this repository, verifies its signature and checksums, backs up your current DLL
 and installs the matching one. The launcher updates itself the same way. If an update cannot be verified, nothing is
 replaced, and you can choose to play anyway or cancel.
 
-**By hand.**
+<details>
+<summary><b>By hand</b></summary>
+<br>
 
 1. Ask the server owner which release they run (versions look like `v0.2.0`).
 2. Download that release's files.
 3. Check them against `SHA256SUMS.txt`.
 4. Copy `steam_api64.dll` into the game's `bin\x64` folder (back up the old one first).
 5. Start the game through the ANViL launcher and sign in to the server.
+
+</details>
 
 ## Patch notes
 
