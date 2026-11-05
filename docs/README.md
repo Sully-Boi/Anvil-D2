@@ -15,9 +15,9 @@ use them and how to get help.
 | [Moderation](commands/moderation.md) | Ban, unban, mute, unmute, kick |
 | [Items and currency](commands/items-and-currency.md) | Give, currency and materials, inventory, clear weapons, Eververse reset, owned clear |
 | [Missions and quests](commands/missions-and-quests.md) | Mission reset and checkpoints, pursuits (quests and bounties), objective values, the Director view, mission scripts |
-| [Progression: XP and ranks](commands/progression-xp-ranks.md) | Guardian Rank, XP and the Rewards Pass, vendor reputation |
+| [Progression: XP and ranks](commands/progression-xp-ranks.md) | Guardian Rank, XP and the Rewards Pass, vendor reputation, the Seasonal Hub weekly track |
 | [World and events](commands/world-and-events.md) | World pickups (spawn), public events, seasonal events, inbox announcements |
-| [Server operation](commands/server-operation.md) | Status, the console view, players, save, backups, shutdown |
+| [Server operation](commands/server-operation.md) | Status, the console view, players, save, backups, shutdown, the server window, reloading `anvil-server.cfg` |
 | [Server settings](commands/server-settings.md) | The `rules` commands, every `anvil-rules.cfg` key, the `anvil-server.cfg` keys |
 | [Command line](commands/command-line.md) | Every `anvil-server` flag |
 
@@ -25,7 +25,8 @@ use them and how to get help.
 
 - `<name>` is a value you must type. `[name]` is optional. `a|b` means type one of them.
 - Command words are not case sensitive. `GIVE glimmer 10` works like `give glimmer 10`.
-- "Console" means the anvil-server window. "Chat" means in-game text chat with a `!` prefix.
+- "Console" means the anvil-server console, in its terminal or on the Console page of the server window. "Chat" means
+  in-game text chat with a `!` prefix.
 - "Admin" means an account with the admin role. The operator at the server console can always run everything.
 - "The selected character" is the character picked in the game. Most character commands refuse when the game
   is at character select or signed off.
@@ -38,17 +39,20 @@ use them and how to get help.
 | --- | --- |
 | `ANVIL_XP_244019=1` | `xp`, and the `xp.kill.*`, `xp.activity.*`, `xp.public_event*`, `xp.pass_boosts` rules |
 | `ANVIL_VENDOR_RANKS_244019=1` | `reputation`, and the `reputation.portal.*`, `reputation.strike.normal`, `ranks.track.*` rules |
-| `ANVIL_OBJECTIVES_244019=1` | `pursuit ...` and `objective set ...` |
-| `ANVIL_OBJECTIVES_TOAST_H_244019=1` | the removal notice sent by `pursuit remove` |
 | `ANVIL_WORLD_PICKUPS_244019=1` | `spawn glimmer`, `spawn engram` |
-| `ANVIL_MISSION_SCRIPT_244019=1` with `ANVIL_MISSION_ENGINE_244019=1` | `scripts reload` |
 | `ANVIL_GRANK_TRACKER_244019=1` | `rank` also updates the character-select tiles |
 | `ANVIL_DEBUG_OVERLAY_244019=1` | the in-game debug overlay's Server tab (another way to send commands) |
 | `ANVIL_CHEST_LOOT_244019=1` | the `chest.*` rules |
 | `ANVIL_OBJECTIVES_H_244019=1` | the `xp.pursuit.*` rules (when the XP service is off) |
 | `ANVIL_PORTAL_244019=1` | the `power.portal_bonus.*` rules |
-| `ANVIL_DISTORTIONS_244019=1` | the `distortions.*` rules (`distortions.matter.chest` also needs `ANVIL_CHEST_LOOT_244019=1`) |
+| `ANVIL_POWER_RULES_DATA_244019=1` | new gear takes its Power from the game's own reward rules; the `power.*` keys then override them |
+| `ANVIL_ATTUNEMENT_244019=1` | the `reward.attunement.multiplier` rule |
 | `ANVIL_SOCKET_COSTS_244019=1` | the `upgrade.cost_multiplier` rule |
 | `ANVIL_REWARD_POLICIES_244019=1` | the `reward.*` rules (gear tiers of rewards) |
 | `ANVIL_NET_SHARED_SPACE_244019=1` or `2` | the `shared_space` key of `anvil-server.cfg` (with `multiplayer = fireteam`) |
 | `ANVIL_NET_SESSIONS_244019=1` | online session advertisements get a session id (with `multiplayer = fireteam`) |
+
+Some features that used to need a switch are on by default and have a switch that turns them off: objectives
+(`pursuit`, `objective set`), mission scripts (`scripts reload`) and the Distortions. Set
+`ANVIL_OBJECTIVES_244019=0`, `ANVIL_MISSION_SCRIPT_244019=0` (or `ANVIL_MISSION_ENGINE_244019=0`) or
+`ANVIL_DISTORTIONS_244019=0` to turn one off.

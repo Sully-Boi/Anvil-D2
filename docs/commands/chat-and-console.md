@@ -4,7 +4,8 @@
 
 ## Where you can type a command
 
-1. **The server console** (the anvil-server window). Type the command with no prefix, then Enter.
+1. **The server console** (the anvil-server terminal, or the Console page of the server window, see
+   [Server operation](server-operation.md#the-server-window)). Type the command with no prefix, then Enter.
    - Up and Down recall earlier commands (the last 32).
    - Tab completes a command, a subcommand or an account name.
    - The operator at the console can run every command.
@@ -28,6 +29,12 @@ Every account has one of two roles: **player** (the default) or **admin**.
 | Player | Only `!clan` (see [Clans](players-and-accounts.md#clans)). Every other chat command answers `unknown command`, so admin commands are not revealed. `!anvil` answers `Commands: !clan (your clan). !anvil clan shows its usage.`; `!anvil <other command>` answers `No chat commands are available to your account.` |
 | Admin | Runs the chat commands below, and is a server owner for clans (`clan as`, `clan move`). The role is checked again for every command, and a banned admin is treated as a player. |
 | Console operator | Runs everything, including the console-only commands. |
+
+Admin accounts can hold more than one kind of staff role. Every command needs a permission, and the account's role
+decides which permissions it has: the built-in `admin` and `moderator` roles, roles the server owner adds, and the
+**server owner** (`accounts owner [<name>]`), who holds every permission. `roles` lists the roles and
+`roles show <role|id|account>` shows one role's, or one account's, permissions (console only). A command an account
+may not run answers `You don't have access to that command.`
 
 Grant the admin role on the console with `accounts admin <name> on`, or from the command line with
 `anvil-server --set-admin <name> on`. Chat can never grant or remove the role.
@@ -127,6 +134,34 @@ Any other name is refused: `There is one character store (the local player) unti
 | `announce` with no text (guided) | Yes | No | No | [World and events](world-and-events.md) |
 | `rules` | Yes (full list) | `!rules` (short, read only) | `--rules-check` | [Server settings](server-settings.md) |
 | `rules diff`, `rules check`, `rules reload` | Yes | No | No | [Server settings](server-settings.md) |
+| `config reload` | Yes | No | No | [Server operation](server-operation.md) |
+| `gui` | Yes | No | No | [Server operation](server-operation.md) |
+| `accounts owner [<name>]`, `roles [show <role\|id\|account>]` | Yes | No | No | [Players and accounts](players-and-accounts.md) |
+| `sv_cheats [0\|1]` | Yes | Yes | No | this page, below |
+
+## Cheat commands and the cheat switch
+
+`sv_cheats` shows or sets the cheat switch. With `sv_cheats 0` every cheat and test command is refused on every route,
+for the server owner too. Changing it is written to the moderation log and announced to the players. It is not saved:
+the server starts with it at 0, and at 1 only when started with `ANVIL_TEST_TOOLS_244019=1`. Setting it needs the
+console permission for cheats.
+
+The in-game console (still being built) offers these cheat commands, which also need `sv_cheats 1`:
+
+| Command | What it does |
+| --- | --- |
+| `noclip on [speed 1..200]` · `noclip off` | fly through walls along the camera |
+| `god on\|off` | take no damage from hits |
+| `setpos <x> <y> <z> [speed 1..200]` · `setpos off` · `getpos` | fly to a world point (metres), or print your position and facing |
+| `launch <activity>` · `launch list [filter]` · `launch cancel` | arm the next launch to load this activity instead |
+| `mission step complete` · `mission step goto <n>` | complete the running mission's current step, or go to step n |
+| `mission event <trigger_enter\|trigger_leave\|squad_cleared\|interact\|damage> <name-or-id> [member N]` | inject an input into the running mission |
+| `spawn squad <squad> [count=N] [option=N]` · `kill squad <squad>\|all\|off` | spawn an authored squad of the running mission, or kill a squad or every enemy |
+
+The in-game console also has `whoami` (your account, your role and what you may run) and `look`: `look` shows how your
+Guardian looks to other players, `look speed <factor>` (0.5 to 2.0) and `look size <factor>` (0.5 to 3.0) change it,
+and `look off` clears it. `look` needs the admin-looks permission, which the built-in admin role holds, and is
+experimental. Prop and enemy disguises (`look prop`, `look enemy`) are not in this build yet.
 
 Most character and store commands need a running server. Without one they answer
 `This command needs a running server.` (or `<command> needs a running server.`).

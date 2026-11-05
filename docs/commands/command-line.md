@@ -4,7 +4,7 @@
 
 ```
 anvil-server [--listen host:port] [--data <dir>] [--normal|--verbose|--quiet] [--no-logo] [--no-status]
-             [--allow-unbound-launch] [--remote-play]
+             [--headless|--no-gui] [--allow-unbound-launch] [--remote-play]
 ```
 
 Run with no account flag, `anvil-server` starts the server. The account and offline flags below do one job and exit;
@@ -31,6 +31,7 @@ character fixes use `4` when the server is running and `5` when the data folder 
 | `--quiet` | failures only | `anvil-server --quiet` |
 | `--no-logo` | the startup banner without the ANViL crest | `anvil-server --no-logo` |
 | `--no-status` | no live status block; commands are still read line by line | `anvil-server --no-status` |
+| `--headless` (or `--no-gui`) | no server window, the console only (same as `gui = off`). Closing the window can leave the server running; the `gui` console command opens it again | `anvil-server --headless` |
 | `--allow-unbound-launch` | also serves games started without an ANViL Launcher sign-in (development). Their chat commands run as `unbound_chat_account` | `anvil-server --allow-unbound-launch` |
 | `--remote-play` | games on other PCs play here, each account in its own world (same as `remote_play = on`) | `anvil-server --remote-play` |
 
@@ -39,6 +40,13 @@ While the server runs, `log normal|verbose|quiet` switches the console view (see
 **Refuses:** `--allow-unbound-launch` and `--remote-play` with a job flag
 (`--remote-play only applies to running the server`); an invalid `--listen` value (`invalid --listen value`).
 A bad `anvil-server.cfg` or `anvil-rules.cfg` stops the server at start and lists the errors.
+
+## Settings files
+
+| Flag | What it does | Example |
+| --- | --- | --- |
+| `--config-template` | prints every `anvil-server.cfg` key, commented out at a sample value with its range, help and a `[restart]` mark for keys that need a restart, then exits | `anvil-server --config-template > anvil-server.cfg` |
+| `--gui-check` | opens the server window off-screen, draws every page and exits; `0` means the window works | `anvil-server --gui-check` |
 
 ## Rules file
 

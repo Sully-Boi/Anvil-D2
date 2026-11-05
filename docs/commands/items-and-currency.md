@@ -66,7 +66,8 @@ character selected in the game.
   choose rolls as usual.
 - **Arguments:**
   - `tier=1..5`: the gear tier, for gear-tier weapons and armor only. As with drops, Tier 2+ enhances the trait
-    columns, Tier 4+ barrels and magazines, Tier 5 the origin trait.
+    columns, Tier 4+ barrels and magazines, Tier 5 the origin trait. Exotic armor always has the tier set by
+    `reward.exotic_armor_tier` (default 5): `tier=` is ignored for it and the reply says so, unless that key is `0`.
   - `power=10..550`: the item's Power (550 is this build's Power cap).
   - `perk<N>=<plug hash>`: the plug for socket N (0..15, the item's socket index). Plugs are given by hash only
     (decimal or `0x`); there are no plug names. The plug must be in that socket's plug set. It is enhanced when the

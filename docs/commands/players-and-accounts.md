@@ -67,6 +67,22 @@ The same account changes are also on the command line: see [Command line](comman
   (`No account named <name>.`); a bad form (`usage: accounts admin <name> on|off`). Granting a role the account
   already has answers `<name> is already an admin.` and changes nothing.
 
+## `accounts owner [<name>]`
+
+- **Where:** console only. **Who:** console operator.
+- **What:** without a name, shows the server owner. With a name, makes that account the owner: every staff
+  permission and the permissions menu. Nobody else can act on the owner. With no owner set, a game started without a
+  launcher sign-in is the owner.
+- **Arguments:** `[<name>]`: an existing account.
+- **Examples:** `accounts owner` · `accounts owner alice`
+
+## `roles` · `roles show <role|id|account>`
+
+- **Where:** console only. **Who:** console operator.
+- **What:** `roles` lists the staff roles with their rank and number of permissions (`admin` and `moderator` are
+  built in). `roles show` lists one role's permissions, or what one account may do.
+- **Examples:** `roles` · `roles show moderator` · `roles show alice`
+
 ## `characters [local]`
 
 - **Where:** console and chat (`!characters`).
@@ -121,7 +137,8 @@ The same account changes are also on the command line: see [Command line](comman
 
 Every account is in exactly one clan. A new account is in the **default clan, ANViL [ANVL]**, until it creates or
 joins another. The default clan is always open, needs no invite, and cannot be left, closed or disbanded; the server
-owner can rename it, change its tag and set its motto.
+owner can rename it, change its tag and set its motto. Until a motto is set, the default clan shows a short default
+description.
 
 - **Where:** console (`clan ...`) and chat (`!clan ...`).
 - **Who:** every signed-in account can use `!clan` in chat, admin or not (a banned account cannot). Inside a clan,

@@ -56,6 +56,7 @@ Only the areas listed here work, and only as far as their state says.
 <tr><td>Strikes</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
 <tr><td>Patrols: Cosmodrome and EDZ</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
 <tr><td>Public events</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Seasonal Hub weekly reward track</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
 <tr><td>Expansion campaigns</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
 <tr><td>Dungeons</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
 <tr><td>Raids</td><td><img src="https://img.shields.io/badge/Not%20available-b62324?style=flat-square" alt="Not available"></td></tr>
@@ -74,8 +75,10 @@ Only the areas listed here work, and only as far as their state says.
 <tr><td>Triumphs</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
 <tr><td>Clans</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
 <tr><td>Character appearance</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
+<tr><td>Loadouts</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
 <tr><td>Buffs and consumables</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
 <tr><td>Staff roles and moderation</td><td><img src="https://img.shields.io/badge/Works%2C%20with%20issues-d29922?style=flat-square" alt="Works, with issues"></td></tr>
+<tr><td>Server management window</td><td><img src="https://img.shields.io/badge/Experimental-388bfd?style=flat-square" alt="Experimental"></td></tr>
 <tr><td>In-game overlay</td><td><img src="https://img.shields.io/badge/Works-2ea043?style=flat-square" alt="Works"></td></tr>
 <tr><td>In-game console</td><td><img src="https://img.shields.io/badge/Being%20built-6e7681?style=flat-square" alt="Being built"></td></tr>
 </table>
@@ -140,9 +143,11 @@ The server is run and configured with chat, console and command-line commands. T
 
 - where to type commands, and the admin and player roles;
 - clans: creating, joining and managing them with `!clan`;
-- items, currency, missions, quests and progression;
+- items, currency, missions, quests and progression, including the vendor ranks and the Seasonal Hub weekly track;
 - world pickups, public events, seasonal events and inbox announcements;
-- every server setting (loot, chests, Power, XP, reputation, resets, Xur) and every command-line flag.
+- the server window, and reloading the settings files while the server runs;
+- every server setting (loot, chests, Power, dismantling, vault size, XP, reputation, the Tower, resets, Xur) and
+  every command-line flag.
 
 ## Releases
 

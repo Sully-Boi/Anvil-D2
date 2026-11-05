@@ -54,8 +54,8 @@ game.
 
 ## Pursuits (quests and bounties)
 
-**Opt-in:** every `pursuit` command needs `ANVIL_OBJECTIVES_244019=1`. Without it:
-`pursuit: the objective publication is off; start the server with ANVIL_OBJECTIVES_244019=1`.
+Objectives are on by default. If the server was started with `ANVIL_OBJECTIVES_244019=0`, every `pursuit` command
+answers `pursuit: the objective publication is off; start the server with ANVIL_OBJECTIVES_244019=1`.
 Every command works on the selected character.
 
 ### `pursuit give <item hash>`
@@ -83,8 +83,7 @@ Every command works on the selected character.
 
 - **Where:** console and chat (`!pursuit remove`).
 - **Who:** admin.
-- **What:** removes a held pursuit. No reward is given. With `ANVIL_OBJECTIVES_TOAST_H_244019=1` the game is also
-  sent the removal notice.
+- **What:** removes a held pursuit. No reward is given.
 - **Arguments:** the pursuit's ID from `pursuit list` (`0x` and up to 16 hex digits) or its item hash.
 - **Examples:** `pursuit remove 0x420000000000913E` (an ID from `pursuit list`) · `pursuit remove 0x3C26A638` (by item hash)
 - **Refuses:** a malformed ID (`pursuit remove: the pursuit's ID (0x42..., see pursuit list) or its item hash`);
@@ -124,8 +123,8 @@ Every command works on the selected character.
 
 ## Objective values
 
-**Opt-in:** every `objective set` command needs `ANVIL_OBJECTIVES_244019=1`. These commands write raw progress
-values. Use them for testing. Changes are sent to a signed-on game.
+Objectives are on by default (`ANVIL_OBJECTIVES_244019=0` turns them off, and then every `objective set` command is
+refused). These commands write raw progress values. Use them for testing. Changes are sent to a signed-on game.
 
 Common rules: the row or index is a number 0..65535 (the real limit of each bank is checked when the command runs).
 The value is a whole number -2147483648..2147483647 unless noted. Rows other features own are refused:
@@ -201,12 +200,13 @@ flag row 149 (both belong to the first mission).
 
 - **Where:** console only.
 - **Who:** console operator.
-- **Opt-in:** needs `ANVIL_MISSION_SCRIPT_244019=1` with `ANVIL_MISSION_ENGINE_244019=1`.
+- **Needs:** mission scripts, which are on by default (`ANVIL_MISSION_SCRIPT_244019=0` or
+  `ANVIL_MISSION_ENGINE_244019=0` turns them off).
 - **What:** recompiles the mission scripts. Each running mission swaps to its new program at a safe point and starts
   a new attempt: once-keys, attempt variables, timers and squad reads reset; variables and activity once-keys are
   kept. A failed compile keeps the old program.
 - **Arguments:** `keep`: swap the program but let the attempt go on unchanged.
 - **Examples:** `scripts reload` · `scripts reload keep`
 - **Refuses:** scripts switched off
-  (`scripts reload: mission scripts are off (ANVIL_MISSION_SCRIPT_244019=1 with ANVIL_MISSION_ENGINE_244019=1)`);
+  (`scripts reload: mission scripts are off (...)`, naming the two switches);
   another word (`usage: scripts reload [keep]`).

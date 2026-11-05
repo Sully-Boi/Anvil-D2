@@ -5,7 +5,11 @@
 Two text files next to `anvil-server.exe` configure the server:
 
 - **`anvil-rules.cfg`**: the gameplay rates (loot, Power, XP, reputation, resets). Optional.
-- **`anvil-server.cfg`**: the network address, data folder and multiplayer options.
+- **`anvil-server.cfg`**: the network address, data folder, multiplayer options and the server window.
+
+Both files can be read again while the server runs: `rules reload` for `anvil-rules.cfg` and `config reload` for
+`anvil-server.cfg` (both also on the Config page of the server window). With `watch_config = on` a saved file is
+reloaded by itself.
 
 ---
 
@@ -39,7 +43,7 @@ Two text files next to `anvil-server.exe` configure the server:
 
 - **Where:** console only. **Who:** console operator.
 - **What:** reads `anvil-rules.cfg` again. The rates change at once and each change is logged. The restart keys
-  (`reset.*` and `vendors.*`) keep their running value until the next start; the log says
+  (`reset.*`, `xur.*` and `vendors.special_deliveries_once_per_account`) keep their running value until the next start; the log says
   `<key> stays <value> until a restart`. With no file, the defaults come back.
 - **Examples:** `rules reload`
 - **Refuses:** a file with errors or that cannot be read: nothing changes and the errors go to the log
@@ -150,6 +154,7 @@ Defaults:
 | `loot.min_rarity` | rarity | common..legendary | rare | lowest rarity of random gear at or above `loot.min_rarity_from_power` (`common` = no floor) |
 | `loot.min_rarity_from_power` | integer | 10..550 | 300 | current Power from which `loot.min_rarity` applies |
 | `loot.social_space_drops` | flag | on/off | off | world drops in social and practice spaces (Tower, Lighthouse, Shooting Range, Xur's hoard) |
+| `loot.mattergem_boss_chance` | chance | 0..100% | 100% | chance that a boss kill drops an Upgrade Module while Concentrated Mattergem is active; the drop ends the effect |
 | `loot.source_pools` | flag | on/off | on | drops follow each item's source in the game data: destination gear drops on its own destination, and faction, destination and Exotic engrams decrypt into their own pools. `off`: one shared pool, as in earlier releases |
 
 #### Power
@@ -203,6 +208,38 @@ Only with `ANVIL_CHEST_LOOT_244019=1`.
 | `dismantle.glimmer.rare` | integer | 0..100000 | 25 | ... a Rare (blue) item |
 | `dismantle.glimmer.legendary` | integer | 0..100000 | 50 | ... a Legendary item |
 | `dismantle.glimmer.exotic` | integer | 0..100000 | 100 | ... an Exotic item |
+| `dismantle.cores.min_tier` | integer | 1..6 | 4 | the gear tier (1..5; `6` = never) from which a dismantled Legendary weapon or armor piece returns Enhancement Cores |
+| `dismantle.cores` | integer | 0..99 | 1 | Enhancement Cores for dismantling a Legendary weapon or armor piece of that tier or higher (`0`: none) |
+| `dismantle.cores.exotic` | integer | 0..99 | 1 | Enhancement Cores for dismantling an Exotic weapon or armor piece |
+| `dismantle.cores.masterwork` | range | each end 0..99 | 1-7 | Enhancement Cores (a random number from low to high) for dismantling a fully masterworked Legendary or Exotic weapon, instead of `dismantle.cores` or `dismantle.cores.exotic` |
+| `dismantle.gunsmith.weapon` | integer | 0..10000 | 10 | Gunsmith Rank reputation for dismantling a Legendary or Exotic weapon (needs `ANVIL_VENDOR_RANKS_244019=1`) |
+
+The core and reputation returns are server-chosen numbers: the game data has no dismantle reward of its own.
+
+#### Vault
+
+| Key | Type | Range | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `vault.size` | integer | 0..1300 | 1300 | items the account vault holds (packages in the Consumables do not count). A deposit past it is refused. Lowering it keeps every stored item; only new deposits are refused |
+
+#### Seasonal Hub
+
+The Seasonal Hub has a weekly reward track of 20 ranks. These keys set how much progress its weekly reward items
+give (1000 is one rank). The numbers are server-chosen. `reputation show hub` and `reputation add hub <amount>`
+show and change the track (see [Progression](progression-xp-ranks.md)).
+
+| Key | Type | Range | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `hub.progress.plus` | integer | 0..20000 | 1000 | progress of the reward "Weekly Rank Progress+" |
+| `hub.progress.plus5` | integer | 0..20000 | 5000 | ... "Weekly Rank Progress+++++" |
+| `hub.progress.bonus` | integer | 0..20000 | 1000 | ... "Weekly Bonus Rank" |
+
+#### The Tower
+
+| Key | Type | Values | Default | What it does |
+| --- | --- | --- | --- | --- |
+| `tower.decorations` | pick | `auto`, `none`, `solstice`, `fotl`, `rally`, `v023a8947`, `v9cdc5763`, `v9cdc5762` | auto | the Tower's seasonal dressing. `auto`: the event switched on with `event on` (solstice, festival) or the date decides. `none`: the undecorated Tower. A name picks that variant. Applies at the next Tower load. In this build only `v023a8947` loads maps of its own; the other variants load the usual Tower, so they show no visible change |
+| `tower.music` | pick | `auto`, `none`, `dawning`, `festival`, `solstice`, `guardian-games` | auto | a seasonal theme for the Tower without switching the whole event on. It publishes that event's flag, which also unlocks what the flag gates (vendor stock, collections). `auto` and `none` add no flag. This has not been confirmed in play |
 
 #### XP
 
@@ -229,6 +266,7 @@ Every other XP key needs `ANVIL_XP_244019=1`.
 | `xp.public_event` | integer | 0..10000000 | 10000 | XP for a public event (no effect yet: completions are not detected) |
 | `xp.public_event.heroic` | integer | 0..10000000 | 5000 | ... extra for a heroic public event |
 | `xp.pass_boosts` | flag | on/off | on | the Rewards Pass XP boosts (Large 20 %, Small 4 %, Minor 3 %, added together) once granted |
+| `xp.well_rested_ranks` | integer | 0..100 | 5 | Well-Rested: double XP for the account's first N Rewards Pass ranks each reset week, listed under Buffs (`0`: off) |
 
 #### Reputation and vendor ranks
 
@@ -251,7 +289,8 @@ Only with `ANVIL_VENDOR_RANKS_244019=1`.
 
 #### Distortions
 
-Only with `ANVIL_DISTORTIONS_244019=1`. The amounts are server defaults, not values taken from the game data.
+The Distortions are on by default (`ANVIL_DISTORTIONS_244019=0` turns them off). The amounts are server defaults, not
+values taken from the game data.
 
 | Key | Type | Range | Default | What it does |
 | --- | --- | --- | --- | --- |
@@ -268,9 +307,10 @@ Only with `ANVIL_DISTORTIONS_244019=1`. The amounts are server defaults, not val
 
 #### Reward tiers
 
-Only with `ANVIL_REWARD_POLICIES_244019=1`; without it these keys are not read and gear keeps the tier of its source
-data. They set the gear tier (1..5) of rewards. The numbers are server defaults, not values taken from the game data.
-These keys change with `rules reload`.
+Most of these keys need `ANVIL_REWARD_POLICIES_244019=1`; without it gear keeps the tier of its source data.
+`reward.exotic_armor_tier`, `reward.tiered_armor` and `reward.tiered_weapons` apply without it. They set the gear tier
+(1..5) of rewards. The numbers are server defaults, not values taken from the game data. These keys change with
+`rules reload`.
 
 | Key | Type | Range | Default | What it does |
 | --- | --- | --- | --- | --- |
@@ -279,7 +319,7 @@ These keys change with `rules reload`.
 | `reward.event.plus_one` | chance | 0..100% | 15% | public event gear (base Tier 3): chance of Tier 4 |
 | `reward.event.plus_two` | chance | 0..100% | 5% | public event gear (base Tier 3): chance of Tier 5. With `reward.event.plus_one` at most 100% |
 | `reward.event.heroic_plus_one` | chance | 0..100% | 25% | heroic public event gear (base Tier 4): chance of Tier 5 |
-| `reward.event.distortion_bonus` | integer | 0..4 | 1 | tiers a public event's gear gains on a Distorted Destination (`ANVIL_DISTORTIONS_244019=1`), at most Tier 5 |
+| `reward.event.distortion_bonus` | integer | 0..4 | 1 | tiers a public event's gear gains on a Distorted Destination, at most Tier 5 |
 | `reward.event.items` | integer | 0..5 | 1 | gear items each present member gets at a public event's success or heroic end (`0`: none) |
 | `reward.world.tier2` | chance | 0..100% | 30% | open-world gear (kills, chests, Lost Sector chests, untiered engrams): chance of Tier 2; otherwise Tier 1 unless `reward.world.tier3` hits |
 | `reward.world.tier3` | chance | 0..100% | 0% | open-world gear: chance of Tier 3. With `reward.world.tier2` at most 100% |
@@ -297,18 +337,23 @@ These keys change with `rules reload`.
 | `reward.featured.raid` | pick | `auto`, `none` or a raid name | auto | this week's featured raid, the same way |
 | `reward.vendor.tier` | integer | 1..5 | 1 | gear bought from a vendor that is neither a destination vendor nor a focusing page |
 | `reward.vendor.destination_tier` | integer | 1..5 | 3 | gear bought from a destination vendor |
-| `reward.focus.weapon_t4_from` | integer | 300..550 | 400 | a focused weapon is Tier 4 from this current Power (Tier 3 below) |
-| `reward.focus.armor_t4_from` | integer | 300..550 | 400 | focused armor is Tier 4 from this current Power (Tier 3 below). At most `reward.focus.armor_t5_from` |
-| `reward.focus.armor_t5_from` | integer | 300..550 | 520 | focused armor is Tier 5 from this current Power |
+| `reward.focus.tier2_from` | integer | 0..550 | 200 | decoded gear's Power band 2 starts at this current Power. Each decoding page maps the bands to tiers (armor Tier 1..5; weapons Tier 3, 3, 3, 4, 4) |
+| `reward.focus.tier3_from` | integer | 0..550 | 300 | band 3 starts at this current Power |
+| `reward.focus.tier4_from` | integer | 0..550 | 400 | band 4 starts at this current Power (decoded weapons reach Tier 4) |
+| `reward.focus.tier5_from` | integer | 0..550 | 520 | band 5 starts at this current Power (decoded armor reaches Tier 5). The four values may not fall from one band to the next |
 | `reward.collections.tier` | integer | 1..5 | 1 | gear pulled from Collections (its Power stays 300) |
-| `reward.exotic_armor_tier` | integer | 0..5 | 5 | Exotic armor from any source except an operator `give` with `tier=`. `0`: the source's own tier |
+| `reward.exotic_armor_tier` | integer | 0..5 | 5 | the tier of Exotic armor from every source, including an operator `give` with `tier=`; stored pieces are raised to it when they load. `0`: the source's own tier, no upgrade |
 | `reward.armor.t5_tuning` | flag | on/off | on | a Tier 5 Armor 3.0 drop gets a tuned stat: its tuning socket holds a +5 / -5 tuning mod of a random stat |
+| `reward.tiered_armor` | flag | on/off | on | a random Legendary armor drop is a gear-tier (Armor 3.0) piece whenever its draw holds one. `off`: armor without a tier can drop too |
+| `reward.tiered_weapons` | flag | on/off | off | a random Legendary weapon drop is a gear-tier weapon whenever its draw holds one |
+| `reward.attunement.multiplier` | multiplier | 0..100 | 1.6 | the attuned weapon's weight in a reward draw that holds it, against 1.0 for every other item (needs `ANVIL_ATTUNEMENT_244019=1`) |
+| `reward.ghost_armorer.chance` | chance | 0..100% | 50% | the chance that a dropped Armor 3.0 piece has the archetype the equipped Ghost's Armorer mod names; `0`: the mods do nothing |
 
 #### Vendor purchases
 
 | Key | Type | Range | Default | What it does |
 | --- | --- | --- | --- | --- |
-| `vendors.sale_rolls` | flag | on/off | on | a vendor purchase grants the plugs the sale fixes (the perks its preview shows) and one roll per vendor refresh period. `off`: a new random roll per purchase |
+| `vendors.sale_rolls` | flag | on/off | on | a vendor purchase grants the plugs the sale fixes (the perks its preview shows) and one roll per vendor refresh period; a decode such as Focused Decoding gets a new roll per purchase. `off`: a new random roll per purchase everywhere |
 
 #### Vendors and resets (restart keys)
 
@@ -338,7 +383,10 @@ xp.multiplier = 1.5
 
 ## `anvil-server.cfg`
 
-Same line rules: `key = value`, `#` comments. Unknown keys are ignored. A malformed value of a known key stops the
+Same line rules: `key = value`, `#` comments. `anvil-server --config-template` prints every key, commented out at a
+sample value with its range and help. `config reload` (console or server window) applies `max_players`, `log` and
+`watch_config` at once; every other key waits for the next start. A bad file changes nothing and every error is
+reported. Unknown keys are ignored. A malformed value of a known key stops the
 server (`anvil-server.cfg is invalid ...`), including a bad `multiplayer`, `shared_space`, `relay_ports`, `relay_bind` or
 `relay_lan_address`. A value of `remote_play` is `on`/`off` (also `1`/`0`).
 
@@ -346,7 +394,7 @@ server (`anvil-server.cfg is invalid ...`), including a bad `multiplayer`, `shar
 | --- | --- | --- | --- |
 | `server` | `host:port` (IPv4 or `localhost`, port 1..65535) | `127.0.0.1:7500` | the game port. The login port is port + 1; the local control port is port + 2 (127.0.0.1 only; never forward it). `0.0.0.0:port` listens on every interface |
 | `data` | a folder | `server-data` | the data folder; a relative path is relative to `anvil-server.exe` |
-| `max_players` | 1..64 | 4 | players signed in at once |
+| `max_players` | 1..64 | 4 | players signed in at once. Lowering it with `config reload` never signs anyone out; it only refuses new sign-ins until fewer are on |
 | `log` | `normal`, `verbose`, `quiet` (`simple` and `advanced` are accepted as the old names) | `normal` | the console view the server starts in; `log normal\|verbose\|quiet` switches it while running (`anvil-server.log` always gets every event) |
 | `unbound_chat_account` | an account name | unset | chat commands of a game started without a launcher sign-in (`--allow-unbound-launch`) run as this account; it must still be an admin |
 | `remote_play` | `on`, `off` | `off` | `on`: games on other PCs play here, each account in its own world; the game port also listens on the `server` host |
@@ -358,6 +406,8 @@ server (`anvil-server.cfg is invalid ...`), including a bad `multiplayer`, `shar
 | `relay_lan_address` | `<IPv4>` (not `0.0.0.0`) | unset | the server's LAN address given to relay clients on a private network (unset: the address their game connection reached; other clients get `public_endpoint`) |
 | `patch_notes` | `on`, `off` | `on` | `on`: each newly published release's patch notes (`client-release-notes.md` next to `anvil-server.exe`) are posted once to the in-game inbox as `ANViL Update vX.Y.Z` (see [Inbox announcements](world-and-events.md#automatic-patch-notes)). `off`: never |
 | `patch_notes_popup` | `on`, `off` | `off` | `on`: a player who has not seen the newest patch notes gets them as a popup at character select (up to 3 pages, once per account and release). A new account first gets a one-page welcome, once. Needs `patch_notes = on`. Off by default until it has been seen working in game |
+| `gui` | `on`, `off` | `on` | `on`: the server window opens with the server. `off`: the console only, as with `--headless`. See [Server operation](server-operation.md#the-server-window) |
+| `watch_config` | `on`, `off` | `off` | `on`: saving `anvil-rules.cfg` or `anvil-server.cfg` reloads it (after a short delay and a check; a bad file changes nothing and every error is reported). `off`: only `rules reload` and `config reload` |
 | `legacy_titles` | `unlock`, `off` | `unlock` | `unlock`: the seals under Legacy Titles (titles that can no longer be earned) are completed for every account when it signs in, so their titles can be equipped. Their Triumphs count as completed, but their rewards and gilding are not granted. Real progress is never lowered. `off`: nothing is changed (turning it off later removes nothing) |
 
 ### Multiplayer settings in short

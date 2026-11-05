@@ -2,7 +2,7 @@
 
 [Back to the index](../README.md) · [Chat and console](chat-and-console.md)
 
-Guardian Rank, character XP with the Rewards Pass, and vendor reputation. All commands need a running server and
+Guardian Rank, character XP with the Rewards Pass, vendor reputation and the Seasonal Hub weekly track. All commands need a running server and
 work on the server console and in chat (admins). The gameplay rates for XP and reputation are set in
 `anvil-rules.cfg` (see [Server settings](server-settings.md)).
 
@@ -76,3 +76,18 @@ work on the server console and in chat (admins). The gameplay rates for XP and r
 - **Refuses:** a missing rank or amount, or an amount out of range (the usage line); an unknown rank; a rank at its
   last step (`reputation add: <rank> is at its last step (N); reset it at the vendor first.`); the same conditions
   as `reputation show`.
+
+## `reputation show hub` · `reputation add hub <amount>`
+
+- **Where:** console and chat (`!reputation show hub`, `!reputation add hub`).
+- **Who:** admin.
+- **What:** works on the Seasonal Hub's weekly reward track (20 ranks of 1000), for the current reset week. `show hub`
+  prints the week, the weekly rank and its progress, the Arsenal level, the week's weapon model and what was claimed.
+  `add hub <amount>` adds exact progress (no multiplier); 1000 is one rank. It does not need the vendor ranks to be on.
+  The weekly reward items add their own progress, set by the `hub.progress.*` keys in
+  [Server settings](server-settings.md).
+- **Arguments:** `<amount>`: 1..1000000. `hub` can also be typed `season_hub` or `seasonal_hub`.
+- **Examples:** `reputation show hub` · `reputation add hub 1000` · `!reputation add hub 5000`
+- **Refuses:** no selected character; a track already at its last rank this week
+  (`reputation add: the Seasonal Hub track is at rank N this week (...)`); a missing or out-of-range amount (the
+  usage line). The Seasonal Hub is experimental.

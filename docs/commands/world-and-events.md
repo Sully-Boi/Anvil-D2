@@ -72,8 +72,9 @@ Console. Ends the running public event without a reward.
 ## Seasonal events
 
 Switching an event on forces it on regardless of the date. Off means the date decides. Changes are saved, sent to a
-signed-on game at once, and otherwise given at the next sign-in. Vendor stock, Tower decoration and activities are
-not changed by these switches.
+signed-on game at once, and otherwise given at the next sign-in. Vendor stock and activities are not changed by these
+switches. The Tower's dressing and music follow the event too: see `tower.decorations` and `tower.music` in
+[Server settings](server-settings.md). This build ships no visible Tower decorations for an event.
 
 Event names: `dawning`, `festival`, `solstice`, `guardian-games`, `crimson-days`, `revelry`, `30th`, `moments`,
 `heavy-metal`.
